@@ -26,7 +26,9 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
           integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
           referrerpolicy="no-referrer" rel="stylesheet"/>
-    @vite(['resources/css/app.css','resources/js/app.js'])
+{{--    @vite(['resources/css/app.css','resources/js/app.js'])--}}
+    <link href="{{ asset('build/assets/app-3ca961df.css') }}" rel="stylesheet">
+    <script src="{{ asset('build/assets/app-4a08c204.js') }}"></script>
 
     <!-- Styles -->
     @livewireStyles
