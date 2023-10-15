@@ -31,7 +31,9 @@
                 <thead class=" text-md text-uppercase text-gray-700 uppercase dark:bg-dark dark:text-white text-bold">
                 <tr class="border-b border-primary border-collapse">
                     @foreach($model::tableField() as $field)
-                        <th class="py-2 px-6" style="{{ isset($field['width'])?'width:'.$field['width']:'' }}">
+                        <th class="py-2 px-6" style="{{ isset($field['width'])?'width:'.$field['width']:'' }}
+                        {{ isset($field['text-align'])?'text-align:'.$field['text-align']:'' }}
+                        ">
                             <a @isset($field['sort']) wire:click.prevent="sortBy('{{ $field['sort'] }}')"
                                @endisset role="button" href="#">
                                 {{$field['label']}} @isset($field['sort'])
@@ -48,26 +50,26 @@
                         @foreach ($model::tableData($data) as $data)
                             @switch($data['type'])
                                 @case('index')
-                                    <td class="py-2 px-6">{{ $index+1 + ($page-1)*$perPage }}</td>
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">{{ $index+1 + ($page-1)*$perPage }}</td>
                                     @break
                                 @case('string')
-                                    <td class="py-2 px-6">{{ $data['data'] }}</td>
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">{{ $data['data'] }}</td>
                                     @break
                                 @case('thousand_format')
-                                    <td class="py-2 px-6">{{ thousand_format($data['data']) }}</td>
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">{{ thousand_format($data['data']) }}</td>
                                     @break
                                 @case('raw_html')
-                                    <td class="py-2 px-6">{!! $data['data'] !!}</td>
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">{!! $data['data'] !!}</td>
                                     @break
                                 @case('img')
-                                    <td class="py-2 px-6">
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">
                                         <img src="{{ $data['data'] }}" alt=""
                                              style="{{ isset($data['width'])?'width:'.$data['width'].';':'' }}
                                              {{ isset($data['height'])?'height:'.$data['height'].';':'' }}">
                                     </td>
                                     @break
                                 @case('action')
-                                    <td class="py-2 px-6">
+                                    <td class="py-2 px-6" style="{{ isset($data['text-align'])?'text-align:'.$data['text-align']:'' }}">
                                         @foreach($data['data'] as $action)
                                             <a @isset($action['link']) href='{{ $action['link'] }}' @else href='#'
                                                wire:click.prevent='{{$action['live']}}' @endisset

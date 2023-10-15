@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Form;
 
-use App\Repository\Form\User as Repository;
+use App\Repository\Form\Example as Repository;
 use Livewire\Component;
 
 class Example extends Component

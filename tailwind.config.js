@@ -35,6 +35,9 @@ export default {
             transparent: colors.transparent,
             black: colors.black,
             white: colors.white,
+            "red-primary":"#AA161C",
+            "yellow-primary":"#FFC700",
+            "green-success":"#198754",
             slate: {
                 DEFAULT: colors.slate,
                 50: "#f8fafc",

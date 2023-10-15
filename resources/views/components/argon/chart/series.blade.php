@@ -80,10 +80,10 @@
                         },
                         x: {
                             grid: {
-                                drawBorder: false,
-                                display: false,
-                                drawOnChartArea: false,
-                                drawTicks: false,
+                                drawBorder: true,
+                                display: true,
+                                drawOnChartArea: true,
+                                drawTicks: true,
                                 borderDash: [5, 5]
                             },
                             ticks: {

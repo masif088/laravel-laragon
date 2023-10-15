@@ -6,7 +6,7 @@
             <!-- breadcrumb -->
             <ol class="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
                 <li class="text-sm leading-normal">
-                    <a class="text-white opacity-50" href="javascript:">{{ config('app.name', 'Argon') }}</a>
+                    <a class="text-white opacity-50" href="javascript:">Page</a>
                 </li>
                 @isset($breadcrumbs)
                     @foreach(explode(';',$breadcrumbs) as $breadcrumb)

@@ -35,12 +35,12 @@
 
 <body
     class="m-0 font-sans text-base antialiased font-normal dark:bg-slate-900 leading-default bg-gray-50 text-slate-500">
-<div class="absolute w-full bg-blue-500 dark:hidden min-h-75"></div>
+<div class="absolute w-full dark:hidden min-h-75 bg-red-primary"></div>
 <!-- sidenav  -->
 @include('layouts.argon.sidenav')
 <!-- end sidenav -->
 
-<main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl">
+<main class="relative h-full max-h-screen transition-all duration-200 ease-in-out xl:ml-68 rounded-xl dark:text-white text-black">
     <!-- Navbar -->
     @include('layouts.argon.navbar')
     <!-- end Navbar -->
@@ -56,6 +56,12 @@
 
 <script>
     const setup = () => {
+        this.livewire.on('redirect', data => {
+            setTimeout(function () {
+                window.location.href = data;
+            }, 2000);
+        })
+
         var sidenav = document.querySelector("aside");
         var whiteBtn = document.querySelector("[transparent-style-btn]");
         var darkBtn = document.querySelector("[white-style-btn]");
@@ -219,6 +225,12 @@
 <!-- plugin for charts  -->
 
 @livewireScripts
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.32/dist/sweetalert2.all.min.js"></script>
+
+<x-livewire-alert::scripts />
+
+<script src="{{ asset('vendor/livewire-alert/livewire-alert.js') }}"></script>
+<x-livewire-alert::flash />
 </body>
 <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
 {{--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.3.3/chart.min.js" integrity="sha512-fMPPLjF/Xr7Ga0679WgtqoSyfUoQgdt8IIxJymStR5zV3Fyb6B3u/8DcaZ6R6sXexk5Z64bCgo2TYyn760EdcQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>--}}
@@ -226,4 +238,6 @@
 <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}" async></script>
 <!-- main script file  -->
 <script src="{{ asset('assets/js/argon-dashboard-tailwind.js') }}" async></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </html>

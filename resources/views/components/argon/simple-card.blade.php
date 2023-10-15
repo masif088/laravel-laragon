@@ -1,7 +1,7 @@
 @props([
 	'title'=> 'No title',
 	'value'=>'Rp. 0',
-	'fluctuation'=>'flat',
+	'fluctuation'=>'none',
 	'fluctuationValue' =>'0%',
 	'fluctuationNote' =>'',
 	'icon' => 'fa-solid fa-circle-question',
@@ -29,19 +29,26 @@
                 </div>
 
             </div>
+
             <p class="mb-0 dark:text-white dark:opacity-60">
                             <span class="text-sm font-bold leading-normal
                             @if($fluctuation=="increase") text-emerald-500 @endif
                             @if($fluctuation=="decrease") text-red-600 @endif
                             @if($fluctuation=="flat") text-gray-400 @endif
-                            ">@if($fluctuation=="increase")
+                            ">
+                                @if($fluctuation!="none")
+                                @if($fluctuation=="increase")
                                     +
                                 @endif
                                 @if($fluctuation=="decrease")
                                     -
                                 @endif{{  $fluctuationValue }}</span>
                 {{ $fluctuationNote }}
+                @else
+                    <br>
+                @endif
             </p>
+
         </div>
     </div>
 </div>

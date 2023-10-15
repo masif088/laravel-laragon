@@ -1,9 +1,9 @@
 @props(['repository'])
-<div wire:ignore>
-    <label class="block text-sm font-bold mb-2 dark:text-white" for="data{{ $repository['model'] }}">
+<div class="mt-3" wire:ignore>
+    <label class="block text-sm font-bold dark:text-white" for="data{{ $repository['model'] }}">
         {{ $repository['title'] }}
     </label>
-  <textarea name="{{ $repository['model'] }}" id="data{{ $repository['model'] }}" >
+  <textarea name="{{ $repository['model'] }}" id="data{{ $repository['model'] }}" @isset($repository['disabled']) disabled @endisset>
   </textarea>
     <script>
         document.addEventListener('livewire:load', function () {
@@ -22,14 +22,14 @@
                     });
                     editor.on('change', function (e) {
                         @this.
-                        set('data.aaa', editor.getContent());
+                        set('data.{{$repository['model']}}', editor.getContent());
                     });
                 },
 
                 skin: useDarkMode ? 'oxide-dark' : 'oxide',
                 content_css: useDarkMode ? '{{ asset('vendor/tinymce/dark.css') }}' : '{{ asset('vendor/tinymce/light.css') }}',
             });
-            $("#data{{ $repository['model'] }}").val(@this.get('data.{{ $repository['model'] }}'));
+            $("#data{{ $repository['model'] }}").val(@this.get('data.{{ $repository['model'] }}'))
             $(".tox-tinymce").last().addClass("dark:border-primary")
         });
     </script>

@@ -1,0 +1,33 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
+/**
+ * @property integer $id
+ * @property string $title
+ * @property integer $package_status_id
+ * @property integer $price
+ * @property string $description
+ * @property string $short_description
+ * @property string $created_at
+ * @property string $updated_at
+ * @property Transaction[] $transactions
+ */
+class Package extends Model
+{
+    /**
+     * @var array
+     */
+    protected $fillable = ['title', 'package_status_id', 'price', 'description', 'short_description', 'created_at', 'updated_at'];
+
+    /**
+     * @return HasMany
+     */
+    public function transactions(): HasMany
+    {
+        return $this->hasMany('App\Models\Transaction');
+    }
+}

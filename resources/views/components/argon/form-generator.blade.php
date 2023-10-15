@@ -1,8 +1,8 @@
-@props(['repositories'])
+@props(["repositories"=>'null',"action"=>'create'])
 @php
     $model = "\App\Repository\Form\\$repositories";
 	$model= new $model();
-	$repositories = $model::formField();
+	$repositories = $model::formField($action);
 @endphp
 @foreach($repositories as $repository)
     @switch($repository)

@@ -1,12 +1,13 @@
 @props(['repository'])
-<div wire:ignore>
+<div class="mt-3" wire:ignore>
     <label for="{{'data'.$repository['model']}}"
-           class="block text-sm font-bold mb-2 dark:text-light">
+           class="block text-sm font-bold dark:text-light">
         {{ $repository['title'] }}
     </label>
     <select id="{{'data'.$repository['model']}}"
             class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white select2"
             multiple=""
+            @isset($repository['disabled']) disabled @endisset
             name="{{ $repository['model'] }}"
             style="padding:0  100px" wire:model="{{'data.'.$repository['model']}}">
         @for($i=0;$i<count($repository['options']) ;$i++)

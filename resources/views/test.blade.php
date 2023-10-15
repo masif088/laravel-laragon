@@ -13,8 +13,8 @@
                 fluctuation="increase"
                 fluctuation-value="10%"
                 fluctuation-note="Naik dari kemarin lusa"
-                icon="fa-solid fa-money-bill"
-                icon-background="bg-gradient-to-tl from-blue-500 to-violet-500"
+                icon="fa-solid fa-money-bill text-red-primary"
+                icon-background="bg-yellow-primary"
             />
 
             <!-- card2 -->
@@ -42,7 +42,8 @@
                     </div>
                     <div class="flex-auto p-4">
                         <div>
-                            <livewire:test/>
+                            <livewire:table.main name="BillCustomer" />
+{{--                            <livewire:test/>--}}
                         </div>
                     </div>
                 </div>
