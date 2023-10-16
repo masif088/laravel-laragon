@@ -99,8 +99,8 @@ Route::middleware([
     Route::get('transaction/recapitulation', function () {
         return view('pages.transaction.recapitulation');
     })->name('transaction.recapitulation');
-    Route::get('transaction/recapitulation/show/{user}', function ($user) {
-        return view('pages.transaction.recapitulation-show', compact('user'));
+    Route::get('transaction/recapitulation/show/{id}', function ($id) {
+        return view('pages.transaction.recapitulation-show', compact('id'));
     })->name('transaction.recapitulation.show');
     Route::get('transaction/payment-history', function () {
         return view('pages.transaction.payment-history');
