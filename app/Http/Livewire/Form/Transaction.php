@@ -27,7 +27,7 @@ class Transaction extends Component
     {
         $this->validate();
         $this->resetErrorBag();
-        $user = User::find($this->data['user_id'])->first();
+        $user = User::find($this->data['user_id']);
         if ($user->user_status_id != 1) {
             $startDate = Carbon::now();
         } else {
@@ -38,6 +38,7 @@ class Transaction extends Component
         $this->data['transaction_status_id'] = 2;
         $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
         $this->model::create($this->data);
+        $user = User::find($this->data['user_id']);
         $user->update([
             'payment_deadline' => $startDate->addMonth()
         ]);
