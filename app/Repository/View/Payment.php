@@ -35,7 +35,7 @@ class Payment extends \App\Models\Payment implements View
             ['label' => '#','sort'=>'id'],
             ['label' => 'Nama', 'width' => '25%','sort'=>'name'],
             ['label' => 'Nomer Rekening','sort'=>'no_reference'],
-            ['label' => 'Jenis','sort'=>'type'],
+            ['label' => 'Atas Nama','sort'=>'type'],
             ['label' => ''],
         ];
     }
