@@ -15,7 +15,7 @@ class Payment extends \App\Models\Payment implements Form
         return [
             "data.name" => 'required',
             'data.no_reference' => 'required',
-            'data.type' => 'required',
+            'data.on_behalf' => 'required',
         ];
     }
 
