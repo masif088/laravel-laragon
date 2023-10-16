@@ -7,7 +7,9 @@
     </x-slot>
     <div>
         <livewire:dashboard.cards/>
+        <livewire:recapitulation-transaction/>
         <livewire:dashboard.charts/>
+
         <div class="bg-green-success bg-yellow-primary px-5">
 
         </div>
