@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
 
         Payment::create([
             'name' => 'Bank BRI',
-            'type' => 'BANK',
+            'on_behalf' => 'BANK',
             'no_reference' => 'OOOO'
         ]);
 

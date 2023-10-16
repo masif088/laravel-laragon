@@ -13,7 +13,7 @@
                 class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                 <div class="flex-auto p-4">
                     <h3 class="mb-5">Ubah Paket</h3>
-                    <livewire:payment.form :data-id="$id" action="update"/>
+                    <livewire:form.payment :data-id="$id" action="update"/>
                 </div>
             </div>
         </div>
