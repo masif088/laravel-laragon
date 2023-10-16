@@ -34,12 +34,12 @@
                 <br>
                 Paket Pilihan
                 <div class="w-11/12 max-w-full px-3 bg-gray-200 rounded-lg py-2 ">
-                    {{ $transaction->package->title }}
+                    {{ !is_null($transaction)?$transaction->package->title:'' }}
                 </div>
                 <br>
                 Biaya Perbulan
                 <div class="w-11/12 max-w-full px-3 bg-gray-200 rounded-lg py-2 ">
-                    {{ $transaction->package->price }}
+                    {{ !is_null($transaction)?$transaction->package->price:'' }}
                 </div>
                 <br>
                 Biaya Pemasangan Awal
