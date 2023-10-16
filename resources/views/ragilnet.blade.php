@@ -31,7 +31,7 @@
                     <a class="nav-link" href="#lokasi">Lokasi</a>
                 </li>
                 <li class="nav-item ms-lg-5" style="font-size: 18px; color: dimgray">
-                    <a class="btn btn-danger">LOGIN</a>
+                    <a href="{{ route('login') }}" class="btn btn-danger">LOGIN</a>
                 </li>
             </ul>
         </div>
