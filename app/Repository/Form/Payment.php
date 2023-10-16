@@ -42,9 +42,9 @@ class Payment extends \App\Models\Payment implements Form
                 'required' => true,
             ],
             [
-                'title' => 'Jenis (Bank/EWallet)',
+                'title' => 'Atas Nama',
                 'type' => 'text',
-                'model' => 'type',
+                'model' => 'on_behalf',
                 'required' => true,
             ],
             [
