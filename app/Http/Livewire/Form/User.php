@@ -30,6 +30,7 @@ class User extends Component
             $this->data['first_installation']=Carbon::now();
             $this->data['payment_deadline']=Carbon::now();
         }
+        $this->data['password']=bcrypt($this->data['password']);
         $this->model::create($this->data);
         $this->alert('success', 'Bermasil menambahkan pengguna baru');
         $this->emit('redirect',route('admin.users.index'));
