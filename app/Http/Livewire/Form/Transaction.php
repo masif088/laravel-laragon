@@ -36,7 +36,7 @@ class Transaction extends Component
         $this->data['date_start'] = $startDate;
         $this->data['date_end'] = $startDate->addMonth();
         $this->data['transaction_status_id'] = 2;
-        $this->data['no_invoice'] = Transaction::getCode();
+        $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
         $this->model::create($this->data);
         $user->update([
             'payment_deadline' => $startDate->addMonth()
