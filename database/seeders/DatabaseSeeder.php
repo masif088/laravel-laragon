@@ -24,31 +24,31 @@ class DatabaseSeeder extends Seeder
 //             'password'=>bcrypt('adminadmin')
 //         ]);
 
-//        PackageStatus::create([
-//            'title' => 'Aktif'
-//        ]);
-//        PackageStatus::create([
-//            'title' => 'Tidak Aktif'
-//        ]);
-//
-//        TransactionStatus::create([
-//            'title' => 'Menunggu konfirmasi'
-//        ]);
-//        TransactionStatus::create([
-//            'title' => 'Telah dibayar'
-//        ]);
-//        TransactionStatus::create([
-//            'title' => 'Pembayaran dibatalkan'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Aktif'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Tenggang'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Non Aktif'
-//        ]);
+        PackageStatus::create([
+            'title' => 'Aktif'
+        ]);
+        PackageStatus::create([
+            'title' => 'Tidak Aktif'
+        ]);
+
+        TransactionStatus::create([
+            'title' => 'Menunggu konfirmasi'
+        ]);
+        TransactionStatus::create([
+            'title' => 'Telah dibayar'
+        ]);
+        TransactionStatus::create([
+            'title' => 'Pembayaran dibatalkan'
+        ]);
+        UserStatus::create([
+            'title' => 'Aktif'
+        ]);
+        UserStatus::create([
+            'title' => 'Tenggang'
+        ]);
+        UserStatus::create([
+            'title' => 'Non Aktif'
+        ]);
 
         Payment::create([
             'name' => 'Bank BRI',
