@@ -1,9 +1,9 @@
 <x-argon-layout>
     <x-slot name="title">
-        User
+        Rekap User
     </x-slot>
     <x-slot name="breadcrumbs">
-        User => #;
+        Rekap User => #;
     </x-slot>
     <div>
         <div class="w-full max-w-full px-3 mt-0 lg:w-12/12 lg:flex-none">

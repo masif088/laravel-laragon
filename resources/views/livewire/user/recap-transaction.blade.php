@@ -7,13 +7,13 @@
                 Nama Lengkap
             </div>
             <div class="w-full max-w-full px-3 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ auth()->user()->name }}
+                {{ $user->name }}
             </div>
             <div class="w-full max-w-full px-10 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 py-2">
                 Alamat
             </div>
             <div class="w-full max-w-full px-3 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ auth()->user()->address }}
+                {{ $user->address }}
             </div>
         </div>
 
@@ -38,13 +38,13 @@
                 No. Telepon
             </div>
             <div class="w-full max-w-full px-3 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ auth()->user()->no_phone }}
+                {{ $user->no_phone }}
             </div>
             <div class="w-full max-w-full px-10 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 py-2">
                 Email
             </div>
             <div class="w-full max-w-full px-3 mb-20 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ auth()->user()->email }}
+                {{ $user->email }}
             </div>
         </div>
     </div>

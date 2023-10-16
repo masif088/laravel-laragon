@@ -24,12 +24,9 @@ class ArgonLayout extends Component
                 ['title' => 'Account', 'icon' => 'fa-solid fa-users', 'color' => '#4B9D93', 'link' => route('admin.users.index')],
                 ['title' => 'Paket Internet', 'header' => true],
                 ['title' => 'Paket Internet', 'icon' => 'fa-solid fa-wifi', 'color' => '#4B9D93', 'link' => route('admin.packages.index')],
-//            ['title' => 'Analisis Paket', 'icon' => 'fa-solid fa-chart-simple', 'color' => '#4B9D93', 'link' =>  route('admin.packages.index')],
-//            ['title' => 'Rekap Paket saat ini', 'icon' => 'fa-regular fa-file', 'color' => '#4B9D93', 'link' =>  '#'],
+
                 ['title' => 'Metode Pembayaran', 'header' => true],
                 ['title' => 'Metode Pembayaran', 'icon' => 'fa-solid fa-wifi', 'color' => '#FFC700', 'link' => route('admin.payment.index')],
-//            ['title' => 'Analisis Pembayaran', 'icon' => 'fa-solid fa-chart-simple', 'color' => '#FFC700', 'link' =>  route('admin.users.index')],
-//            ['title' => 'Rekap Pembayaran saat ini', 'icon' => 'fa-regular fa-file-invoice', 'color' => '#FFC700', 'link' =>  '#'],
             ];
         }else{
             $this->sidebars=[

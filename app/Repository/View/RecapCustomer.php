@@ -55,10 +55,7 @@ class RecapCustomer extends \App\Models\User implements View
         }else {
             $color="bg-red-primary";
         }
-
-
-//dd($user);
-        $link=route('admin.dashboard');
+        $link=route('admin.transaction.recapitulation.show',$data->id);
         return [
 
             ['type' => 'raw_html', 'data' => "

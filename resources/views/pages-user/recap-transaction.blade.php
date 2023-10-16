@@ -10,7 +10,7 @@
             <div
                 class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                 <div class="flex-auto p-4">
-                    <livewire:user.recap-transaction/>
+                    <livewire:user.recap-transaction user-id="{{ auth()->user()->id }}"/>
                 </div>
             </div>
         </div>
