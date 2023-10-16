@@ -47,7 +47,7 @@ class Payment extends \App\Models\Payment implements View
             ['type' => 'index'],
             ['type' => 'string', 'data' => $data->name],
             ['type' => 'string', 'data' => $data->no_reference],
-            ['type' => 'string', 'data' => $data->type],
+            ['type' => 'string', 'data' => $data->on_behalf],
             ['type' => 'raw_html', 'data' => "<a href='$link' class='ml-8 rounded-2xl bg-red-primary px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Ubah</a>"],
         ];
     }
