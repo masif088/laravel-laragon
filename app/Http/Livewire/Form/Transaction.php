@@ -30,6 +30,9 @@ class Transaction extends Component
         $user = User::find($this->data['user_id']);
         if ($user->user_status_id != 1) {
             $startDate = Carbon::now();
+            $user->update([
+                'user_status_id'=>1
+            ]);
         } else {
             $startDate = Carbon::parse($user->payment_deadline);
         }
