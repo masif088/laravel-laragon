@@ -56,6 +56,9 @@ Route::middleware([
     'verified'
 ])->name('admin.')->prefix('admin')->group(function () {
     Route::get('dashboard', function () {
+        if (auth()->user()->role==3){
+            return redirect(\route('member.dashboard'));
+        }
         return view('pages.dashboard');
     })->name('dashboard');
 
