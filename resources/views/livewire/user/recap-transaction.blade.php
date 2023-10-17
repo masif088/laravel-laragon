@@ -67,7 +67,7 @@
                 <td>{{ Carbon\Carbon::parse ($t->date_payment)->format('d/m/Y') }}</td>
                 <td>{{ $t->no_invoice }}</td>
                 <td>{{ $t->package->title }}</td>
-                <td>{{ $t->money }}</td>
+                <td>Rp. {{ thousand_format($t->money) }}</td>
                 <td>{{ $t->payment->name }}</td>
                 <td>{{ $t->transactionStatus->title }}</td>
             </tr>

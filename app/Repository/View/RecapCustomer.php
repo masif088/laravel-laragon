@@ -38,7 +38,8 @@ class RecapCustomer extends \App\Models\User implements View
     {
         return [
             ['label' => 'User Pengguna', 'sort' => 'name'],
-            ['label' => 'Addess', 'sort' => 'address'],
+            ['label' => 'Alamat', 'sort' => 'address'],
+            ['label' => 'Tanggal Tenggang', 'sort' => 'payment_deadline','text-align'=>'center'],
             ['label' => 'Status', 'sort' => 'user_status_id'],
             ['label' => 'Pemasangan Awal', 'sort' => 'first_installation','text-align'=>'center'],
             ['label' => '#'],
@@ -65,6 +66,7 @@ class RecapCustomer extends \App\Models\User implements View
             <div class='font-medium'>$data->name</div>
             <div class='text-slate-500'>$data->email</div></div></div>"],
             ['type' => 'string', 'data' => $data->address],
+            ['type' => 'string', 'data' => $data->payment_deadline,'text-align'=>'center'],
             ['type' => 'raw_html', 'text-align'=>'center', 'data' => "<div class='ml-8 rounded-2xl $color px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>$status->title</div>"],
             ['type' => 'string', 'text-align'=>'center', 'data' => $data->first_installation],
             ['type' => 'raw_html', 'data' => "<a href='$link' class='ml-8 rounded-2xl bg-green-success px-5 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Lihat</a>"],

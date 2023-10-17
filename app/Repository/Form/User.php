@@ -15,6 +15,7 @@ class User extends \App\Models\User implements Form
         return [
             "data.name" => 'required',
             'data.email' => 'required|email',
+            'data.no_phone' => 'required',
             'data.role' => 'required',
             'data.password' => 'required',
             'data.address' => 'required',
@@ -41,6 +42,12 @@ class User extends \App\Models\User implements Form
                 'title' => 'Email',
                 'type' => 'email',
                 'model' => 'email',
+                'required' => true,
+            ],
+            [
+                'title' => 'No HP',
+                'type' => 'string',
+                'model' => 'no_phone',
                 'required' => true,
             ],
             [

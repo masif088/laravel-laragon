@@ -19,11 +19,11 @@ class RecapTransaction extends Component
     public function mount(){
         $now=Carbon::now();
         $this->user=User::find($this->userId);
-        $this->transaction = Transaction::where('user_id','=',auth()->user()->id)
+        $this->transaction = Transaction::where('user_id','=',$this->userId)
             ->whereDate('date_start','<',$now)
             ->whereDate('date_end','>',$now)
             ->first();
-        $this->transactions = Transaction::where('user_id','=',auth()->user()->id)
+        $this->transactions = Transaction::where('user_id','=',$this->userId)
             ->orderByDesc('id')
             ->get();
     }
