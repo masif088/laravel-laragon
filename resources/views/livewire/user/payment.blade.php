@@ -27,7 +27,7 @@
     </div>
     <br><br><br>
     <a href="{{ route('member.confirmation-payment') }}"
-       class="rounded-md bg-green-success mt-3  px-30 py-2 font-semibold text-white text-center">
+       class="rounded-md bg-green-success mt-3  px-10 py-2 font-semibold text-white text-center">
         Konfirmasi Pembayaran
     </a>
 </div>
