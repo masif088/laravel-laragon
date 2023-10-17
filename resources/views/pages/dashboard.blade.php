@@ -6,6 +6,7 @@
         Dashboard => #;
     </x-slot>
     <div>
+        <div class="ml-6 translate-x-0"></div>
         <livewire:dashboard.cards/>
         <livewire:recapitulation-transaction/>
         <livewire:dashboard.charts/>
