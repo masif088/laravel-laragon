@@ -64,7 +64,9 @@ class BillCustomer extends \App\Models\User implements View
             ['type' => 'string', 'data' => $user->address],
             ['type' => 'raw_html', 'data' => "<div class='ml-8 rounded-2xl $color px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>$status</div>"],
             ['type' => 'string', 'text-align' => 'center', 'data' => $user->payment_deadline],
-            ['type' => 'raw_html', 'data' => "<a href='$link' class='ml-8 rounded-2xl bg-red-primary px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Lakukan Penagihan</a>"],
+            ['type' => 'raw_html', 'data' => "<div class='ml-8 rounded-2xl bg-red-primary px-3 py-2 text-[0.8125rem]  text-white text-center'>
+<a href='$link' class='font-semibold leading-5'>Lakukan Penagihan</a>
+</div>"],
         ];
     }
 }
