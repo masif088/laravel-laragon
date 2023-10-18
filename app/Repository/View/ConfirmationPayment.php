@@ -26,7 +26,7 @@ class ConfirmationPayment extends \App\Models\Transaction implements View
                             ->orWhere('email', 'like', '%' . $query . '%')
                         ;
                     })->whereHas('package',function ($q2) use ($query) {
-                        $q2->where('name', 'like', '%' . $query . '%');
+                        $q2->where('title', 'like', '%' . $query . '%');
                     });
                 });
     }

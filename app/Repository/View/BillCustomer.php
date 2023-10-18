@@ -18,7 +18,8 @@ class BillCustomer extends \App\Models\User implements View
         return empty($query) ? static::query()->where('role', '=', 3)
             : static::query()->where('role', '=', 3)
                 ->where(function ($q) use ($query) {
-
+                    $q->where('name', 'like', '%' . $query . '%')
+                        ->orWhere('email', 'like', '%' . $query . '%');
                 });
 
 
