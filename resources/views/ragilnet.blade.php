@@ -16,7 +16,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <img alt="Bootstrap" height="60" src="{{ asset('frontpage/Assets/RAGILNET%201.png') }}" width="180">
+            <img alt="Bootstrap" style="width: 10rem" src="{{ asset('frontpage/Assets/RAGILNET%201.png') }}" >
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -31,7 +31,7 @@
                     <a class="nav-link" href="#lokasi">Lokasi</a>
                 </li>
                 <li class="nav-item ms-lg-5" style="font-size: 18px; color: dimgray">
-                    <a href="{{ route('login') }}" class="btn btn-danger">LOGIN</a>
+                    <a href="{{ route('login') }}" style="background: darkred; " class="px-4 btn text-white">LOGIN</a>
                 </li>
             </ul>
         </div>
@@ -75,7 +75,7 @@
     </h2>
     <div class="row">
         <div class="col">
-            <div class="box">
+            <div class="box mx-auto">
                 <img src="{{asset('frontpage/Assets/Reliable.png')}}">
                 <div ; class="superiority" style="margin-top: 20px">Reliable</div>
                 <div class="information">Ragil.net memiliki kecepatan internet yang stabil karena menggunakan
@@ -84,7 +84,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="box ">
+            <div class="box mx-auto">
                 <img src="{{asset('frontpage/Assets/insignia%202.png')}}">
                 <div class="superiority">Avordable</div>
                 <div class="information">Ragil.net menawarkan harga yang terjangkau dan kualitas yang stabil
@@ -92,7 +92,7 @@
             </div>
         </div>
         <div class="col">
-            <div class="box ">
+            <div class="box mx-auto">
                 <img src="{{asset('frontpage/Assets/endless%201.png')}}">
                 <div class="superiority">Unlimited</div>
                 <div class="information">Ragil.net memberikan jaringan unlimited ke pengguna setiap bulannya
@@ -110,31 +110,17 @@
     <div class="container text-center">
 
 
-        <div class="row">
+        <div class="row text-center">
+            @foreach(\App\Models\Package::get() as $package)
             <div class="col">
-                <div class="box1">
+                <div class="box1 mx-auto">
                     <p style="font-size: 25px; margin-top: 40px">Up To</p>
-                    <div class="quota">20 Mbps</div>
+                    <div class="quota">{{ $package->title }}</div>
                     <div class="description">Download/Upload <br> Unlimited Quota</div>
-                    <div class="prize">Rp 100.000</div>
+                    <div class="prize">Rp. {{ thousand_format($package->price) }}</div>
                 </div>
             </div>
-            <div class="col">
-                <div class="box1">
-                    <p style="font-size: 25px; margin-top: 40px">Up To</p>
-                    <div class="quota">35 Mbps</div>
-                    <div class="description">Download/Upload <br> Unlimited Quota</div>
-                    <div class="prize">Rp 150.000</div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="box1">
-                    <p style="font-size: 25px; margin-top: 40px">Up To</p>
-                    <div class="quota">50 Mbps</div>
-                    <div class="description">Download/Upload <br> Unlimited Quota</div>
-                    <div class="prize">Rp 175.000</div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
@@ -146,7 +132,7 @@
         Untuk mendapatkan respon cepat dari kami langsung saja menghubungi</p>
     <br>
     <div class="button">
-        <a ; class="btn" style="font-size: 30px"> <b>Hubungi Kami</b></a>
+        <a ; class="btn text-white" style="font-size: 30px"> <b>Hubungi Kami</b></a>
     </div>
     <div style="margin-bottom: 15rem">
     </div>
@@ -154,15 +140,13 @@
 
 <div id="location">
     <div class="row">
-        <div class="col-md-5 align-middle">
+        <div class="col-md-5 align-middle mb-4">
             <div class="row align-items-center "
                  style="min-height: 100%">
-                <div ; class="col-md-12"
-                     style="font-family:.AppleSystemUIFont; font-size: 60px; color: black; text-align: right; padding-right: 70px">
+                <div class="col-md-12"
+                     style="font-size: 60px; color: black; text-align: right; padding-right: 70px">
                     <b>Jangkauan</b>
-                    <br>
                     <b>Area</b>
-                    <br>
                     <b>Lokasi</b>
                     <br>
                     <img alt="Bootstrap" height="80" src="{{('frontpage/Assets/RAGILNET%201.png')}}" width="240">
@@ -170,7 +154,7 @@
             </div>
         </div>
         <div class="col-md-7 box2">
-            <div class="col">
+            <div class="col mx-auto">
                 <div class="box3"> Desa Wringinagung, Kecamatan kencong, Kabupaten Jember, Jawa Timur
                 </div>
                 <div class="box3"> Desa Wringinagung, Kecamatan kencong, Kabupaten Jember, Jawa Timur
@@ -185,8 +169,9 @@
         <div class="row">
             <div class="col-md-6 align-middle">
                 <iframe allowfullscreen=""
-                        height="200" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15798.874529863344!2d113.72758165!3d-8.130101699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695720d02ed21%3A0xffc5ca507ca2b8a4!2sSEVENDREAM%20CITY!5e0!3m2!1sid!2sid!4v1695183164586!5m2!1sid!2sid" style="border:0;"
-                        width="600">
+                         loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15798.874529863344!2d113.72758165!3d-8.130101699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695720d02ed21%3A0xffc5ca507ca2b8a4!2sSEVENDREAM%20CITY!5e0!3m2!1sid!2sid!4v1695183164586!5m2!1sid!2sid"
+                        style="border:0; width: 100%; height: 300px"
+                        >
                 </iframe>
                 <p style="font-size: 25px"><b>Alamat Kami</b></p>
                 <p style="margin-top: -10px; font-size: 20px">Dusun Pondok waluh, Desa Wringinagung, kencong, Jember, Jawa Timur</p>

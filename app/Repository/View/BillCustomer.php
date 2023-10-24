@@ -15,6 +15,7 @@ class BillCustomer extends \App\Models\User implements View
     public static function tableSearch($params = null): Builder
     {
         $query = $params['query'];
+
         return empty($query) ? static::query()->where('role', '=', 3)
             : static::query()->where('role', '=', 3)
                 ->where(function ($q) use ($query) {

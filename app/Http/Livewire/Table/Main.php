@@ -7,7 +7,8 @@ namespace App\Http\Livewire\Table;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Main extends Component {
+class Main extends Component
+{
 
     use WithPagination;
 
@@ -19,6 +20,8 @@ class Main extends Component {
     public $param2;
     public $param3;
     public $data;
+    public $dateSearch = false;
+    public $extras = false;
 
     public $perPage = 10;
     public $sortField = "id";
@@ -46,10 +49,10 @@ class Main extends Component {
             return;
         }
         $this->emit('swal:confirm', [
-            'icon'        => 'warning',
-            'title'       => 'apakah anda yakin ingin menghapus data ini',
+            'icon' => 'warning',
+            'title' => 'apakah anda yakin ingin menghapus data ini',
             'confirmText' => 'Hapus',
-            'method'      => 'delete',
+            'method' => 'delete',
         ]);
 
     }
@@ -58,7 +61,7 @@ class Main extends Component {
     {
         $this->data->delete();
         $this->emit('swal:alert', [
-            'icon'  => 'success',
+            'icon' => 'success',
             'title' => 'Berhasil menghapus data',
         ]);
     }
@@ -74,9 +77,14 @@ class Main extends Component {
         $this->model = "\App\Repository\View\\$this->name";
         $this->model = new $this->model();
         $data = $this->model::tableSearch(['query' => $this->search, 'param1' => $this->param1, 'param2' => $this->param2, 'param3' => $this->param3])
-            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc')
-            ->paginate($this->perPage);
-        $return=$this->model::tableView();
+            ->orderBy($this->sortField, $this->sortAsc ? 'asc' : 'desc');
+        if ($this->perPage == -1) {
+            $data = $data->get();
+        } else {
+            $data = $data->paginate($this->perPage);
+        }
+
+        $return = $this->model::tableView();
         $return["datas"] = $data;
         return $return;
     }

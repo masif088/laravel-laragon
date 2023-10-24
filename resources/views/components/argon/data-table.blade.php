@@ -1,27 +1,41 @@
 <div>
-    <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-2 xl:grid-cols-2">
+    <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-3 xl:grid-cols-3">
         <div class="flex items-center">
             <span>
             Per Page: &nbsp;
             <select wire:model="perPage"
-                    class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
+                    class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full px-4 py-2 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
                     style="">
                 <option>10</option>
                 <option>15</option>
                 <option>25</option>
+                <option value="-1">all</option>
             </select>
             </span>
 
         </div>
-        {{--        {{dd($searchable)}}--}}
         @if($searchable)
-            <div class="float-right top-2">
-                <br>
-                <input wire:model="search"
-                       class="text-dark bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
-                       type="text" placeholder="Pencarian...">
+            <div class="flex items-center">
+                <span class="w-full">
+                    Pencarian
+                    <input wire:model="search"
+                           class="text-dark bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
+                           type="text" placeholder="Pencarian...">
+                </span>
+
             </div>
         @endif
+        @if($dateSearch)
+            <div class="flex items-center">
+                <span class="w-full">
+                    Tanggal
+                    <input wire:model="param1"
+                           class="text-dark bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white"
+                           type="date" placeholder="Pencarian...">
+                </span>
+            </div>
+        @endif
+{{--        dateSearch--}}
 
     </div>
     <div class="grid grid-cols-1 gap-3 p-4 lg:grid-cols-1 xl:grid-cols-1">
@@ -160,9 +174,16 @@
                 </tbody>
             </table>
         </div>
+        @if($perPage!=-1)
         <div id="table_pagination" class="py-3">
             {{ $datas->onEachSide(1)->links('pagination::tailwind') }}
         </div>
+        @endif
+        @if($extras)
+        <div>
+            {!! $model::extras($datas) !!}
+        </div>
+        @endif
     </div>
 </div>
 

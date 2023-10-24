@@ -30,6 +30,17 @@ class User extends \App\Models\User implements Form
 
     public static function formField($params = null): array
     {
+        if (auth()->user()->role==1){
+            $role=[
+                ['value' => 1, 'title' => 'Admin'],
+                ['value' => 2, 'title' => 'Pegawai'],
+                ['value' => 3, 'title' => 'Pengguna'],
+            ];
+        }else{
+            $role=[
+                ['value' => 3, 'title' => 'Pengguna'],
+            ];
+        }
 
         return [
             [
@@ -54,11 +65,7 @@ class User extends \App\Models\User implements Form
                 'title' => 'Sebagai',
                 'type' => 'select',
                 'model' => 'role',
-                'options' => [
-                    ['value' => 1, 'title' => 'Admin'],
-                    ['value' => 2, 'title' => 'Pegawai'],
-                    ['value' => 3, 'title' => 'Pengguna'],
-                ],
+                'options' => $role,
                 'required' => false,
             ],
             [

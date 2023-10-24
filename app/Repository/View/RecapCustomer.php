@@ -14,9 +14,11 @@ class RecapCustomer extends \App\Models\User implements View
     public static function tableSearch($params = null): Builder
     {
         $query = $params['query'];
-        return empty($query) ? static::query()->where('role','=',3)
+        return empty($query) ? static::query()->where('role','=',3)->whereIn('user_status_id',$params['param1'])
             : static::
-            where('role','=',3)->where(function ($q) use ($query) {
+            where('role','=',3)
+                ->whereIn('user_status_id',$params['param1'])
+                ->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
                     ->orWhere('email', 'like', '%' . $query . '%')
                     ->orWhere('address', 'like', '%' . $query . '%')

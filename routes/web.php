@@ -99,9 +99,7 @@ Route::middleware([
     Route::get('transaction/edit/{id}', function ($id) {
         return view('pages.transaction.edit', compact('id'));
     })->name('transaction.edit');
-    Route::get('transaction/recapitulation', function () {
-        return view('pages.transaction.recapitulation');
-    })->name('transaction.recapitulation');
+
     Route::get('transaction/recapitulation/show/{id}', function ($id) {
         return view('pages.transaction.recapitulation-show', compact('id'));
     })->name('transaction.recapitulation.show');
@@ -121,6 +119,18 @@ Route::middleware([
     Route::get('transaction/confirmation-payment/detail/{id}', function ($id) {
         return view('pages.transaction.confirmation-payment-detail', compact('id'));
     })->name('transaction.confirmation-payment.detail');
+
+    Route::get('customer/recapitulation', function () {
+        return view('pages.customer.recapitulation');
+    })->name('customer.recapitulation');
+
+    Route::get('customer/active', function () {
+        return view('pages.customer.active');
+    })->name('customer.active');
+
+    Route::get('customer/non-active', function () {
+        return view('pages.customer.non-active');
+    })->name('customer.non-active');
 
 
     Route::get('download/transaction/{dateStart}/{dateEnd}', function ($dateStart, $dateEnd) {
