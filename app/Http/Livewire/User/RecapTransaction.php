@@ -20,8 +20,7 @@ class RecapTransaction extends Component
         $now=Carbon::now();
         $this->user=User::find($this->userId);
         $this->transaction = Transaction::where('user_id','=',$this->userId)
-            ->whereDate('date_start','<',$now)
-            ->whereDate('date_end','>',$now)
+            ->orderByDesc('id')
             ->first();
         $this->transactions = Transaction::where('user_id','=',$this->userId)
             ->orderByDesc('id')
