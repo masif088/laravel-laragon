@@ -22,7 +22,7 @@
                 Paket Pilihan
             </div>
             <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ !is_null($transaction)?$transaction->package->name:'-' }}
+                {{ !is_null($transaction)?$transaction->package->title:'-' }}
             </div>
             <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
                 Biaya Berlangganan
