@@ -169,9 +169,10 @@
         <div class="row">
             <div class="col-md-6 align-middle">
                 <iframe allowfullscreen=""
-                         loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15798.874529863344!2d113.72758165!3d-8.130101699999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd695720d02ed21%3A0xffc5ca507ca2b8a4!2sSEVENDREAM%20CITY!5e0!3m2!1sid!2sid!4v1695183164586!5m2!1sid!2sid"
+                         loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.835784825067!2d113.38525031302686!3d-8.181694719593175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68a12b9011b4b%3A0xf41c7fa271290448!2sPd.%20Waluh%2C%20Wringin%20Agung%2C%20Kec.%20Jombang%2C%20Kabupaten%20Jember%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1698200497623!5m2!1sid"
                         style="border:0; width: 100%; height: 300px"
                         >
+
                 </iframe>
                 <p style="font-size: 25px"><b>Alamat Kami</b></p>
                 <p style="margin-top: -10px; font-size: 20px">Dusun Pondok waluh, Desa Wringinagung, kencong, Jember, Jawa Timur</p>

@@ -11,7 +11,7 @@ class ArgonLayout extends Component
 
     public function __construct()
     {
-        if (auth()->user()->role==1 or auth()->user()->role==2) {
+        if (auth()->user()->role == 1 or auth()->user()->role == 2) {
             $this->sidebars = [
                 ['title' => 'Dashboard', 'icon' => 'fa-solid fa-tv', 'color' => '#4B9D93', 'link' => route('admin.dashboard')],
                 ['title' => 'Konsumen', 'header' => true],
@@ -30,8 +30,8 @@ class ArgonLayout extends Component
                 ['title' => 'Metode Pembayaran', 'header' => true],
                 ['title' => 'Metode Pembayaran', 'icon' => 'fa-solid fa-wifi', 'color' => '#FFC700', 'link' => route('admin.payment.index')],
             ];
-        }else{
-            $this->sidebars=[
+        } else if (auth()->user()->role == 2) {
+            $this->sidebars = [
                 ['title' => 'Dashboard', 'icon' => 'fa-solid fa-tv', 'color' => '#4B9D93', 'link' => route('admin.dashboard')],
                 ['title' => 'Konsumen', 'header' => true],
                 ['title' => 'Rekap Konsumen', 'icon' => 'fa-solid fa-users', 'color' => '#FFC700', 'link' => route('admin.customer.recapitulation')],
@@ -44,6 +44,14 @@ class ArgonLayout extends Component
                 ['title' => 'Akun', 'header' => true],
                 ['title' => 'Pendaftaran', 'icon' => 'fa-regular fa-square-plus', 'color' => '#AA161C', 'link' => route('admin.users.create')],
                 ['title' => 'Account', 'icon' => 'fa-solid fa-user', 'color' => '#4B9D93', 'link' => route('admin.users.index')],
+            ];
+        } else {
+            $this->sidebars = [
+                ['title' => 'Dashboard User', 'header' => true],
+                ['title' => 'Dashboard', 'icon' => 'fa-solid fa-tv', 'color' => '#4B9D93', 'link' => route('member.dashboard')],
+                ['title' => 'Rekap Transaksi', 'icon' => 'fa-solid fa-file', 'color' => '#FFC700', 'link' => route('member.recap-transaction')],
+                ['title' => 'Data User', 'icon' => 'fa-solid fa-users', 'color' => '#4B9D93', 'link' => route('member.data-user')],
+                ['title' => 'Pembayaran', 'icon' => 'fa-solid fa-ticket', 'color' => '#AA161C', 'link' => route('member.payment')]
             ];
         }
     }
