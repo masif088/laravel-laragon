@@ -36,20 +36,30 @@ class DailyTransaction extends \App\Models\Transaction implements View
     public static function tableField(): array
     {
         return [
-            ['label' => 'User Pengguna', 'width' => '25%'],
-            ['label' => 'Address'],
-            ['label' => 'Metode Pembayaran'],
-            ['label' => 'Tanggal Pembayaran', 'text-align' => 'center'],
-            ['label' => ''],
+            ['label' => 'Tanggal', 'text-align' => 'center'],
+            ['label' => 'Jumlah Transaksi', 'text-align' => 'center'],
+            ['label' => 'Jumlah Transaksi', 'text-align' => 'center'],
+            ['label' => 'Catatan Pembayaran', 'text-align' => 'center'],
         ];
     }
 
 
     public static function tableData($data = null): array
     {
+$note="";
+        foreach(Payment::get() as $payment){
+            $total =Transaction::where('payment_id','=',$payment->id)->where('date_payment','=',$data->date_payment)->where('transaction_status_id','=',2)->sum('money');
+            if($total!=0){
+                $n=thousand_format($total);
+                $note .= "$payment->name : Rp. $n <br>";
+            }
+        }
 
         return [
-            ['type' => 'string', 'data' => '$user->address'],
+            ['type' => 'string', 'data' => $data->date_payment],
+            ['type' => 'string', 'data' => $data->total. ' transaksi'],
+            ['type' => 'string', 'data' => "Rp. ".  thousand_format($data->money) ],
+            ['type' => 'raw', 'data' => $note ],
 
 
 
