@@ -59,7 +59,7 @@ $note="";
             ['type' => 'string', 'data' => $data->date_payment],
             ['type' => 'string', 'data' => $data->total. ' transaksi'],
             ['type' => 'string', 'data' => "Rp. ".  thousand_format($data->money) ],
-            ['type' => 'raw', 'data' => $note ],
+            ['type' => 'raw_html', 'data' => $note ],
 
 
 
