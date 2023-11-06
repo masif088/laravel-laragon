@@ -20,7 +20,7 @@
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 bg-body-tertiary p-2 ">
                 <li class="nav-item ms-lg-5" style="font-size: 18px; color: dimgray">
                     <a class="nav-link" href="#paketlayanan">Paket</a>
                 </li>

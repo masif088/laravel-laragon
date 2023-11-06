@@ -8,6 +8,9 @@
     <div>
         <div class="ml-6 translate-x-0"></div>
         <livewire:dashboard.cards/>
+{{--        <livewire:daily-transaction/>--}}
+        <livewire:table.main name="DailyTransaction" sort-field="date_payment"/>
+
         <livewire:recapitulation-transaction/>
         <livewire:dashboard.charts/>
 
