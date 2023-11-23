@@ -1,9 +1,10 @@
 <x-argon-layout>
     <x-slot name="title">
-        User
+        Riwayat Pembayaran
     </x-slot>
     <x-slot name="breadcrumbs">
-        User => #;
+        Transaksi => #;
+        Riwayat Pembayaran => #;
     </x-slot>
     <div>
 

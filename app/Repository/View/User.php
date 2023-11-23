@@ -39,11 +39,15 @@ class User extends \App\Models\User implements View
     public static function tableData($data = null): array
     {
         if ($data->role==1){
-            $role = "Admin";
+            $role = "Super Admin";
         }elseif ($data->role==2){
             $role = "Pegawai";
         }else{
             $role = "Pengguna";
+        }
+        $action=[];
+        if ($data->role==3 or auth()->user()->role==1){
+            $action[]=['title' => 'Edit', 'icon' => 'fa fa-eye', 'bg'=>"blue", 'link' => route('admin.users.edit',$data->id)];
         }
 
         return [
@@ -52,10 +56,7 @@ class User extends \App\Models\User implements View
             ['type' => 'string', 'data' => $data->email],
             ['type' => 'string', 'data' => $role],
             ['type' => 'string', 'data' => $data->userStatus->title??"-"],
-            ['type' => 'action', 'data' =>
-                [
-                    ['title' => 'Edit', 'icon' => 'fa fa-eye', 'bg'=>"blue", 'link' => route('admin.users.edit',$data->id)],
-                ],
+            ['type' => 'action', 'data' =>$action
             ],
         ];
     }

@@ -66,10 +66,10 @@ if (!function_exists('blank_model')) {
 }
 
 if (!function_exists('form_model')) {
-    function form_model($repository, $dataId = null)
+    function form_model($repository, $dataId = null,$action="create")
     {
         $array = [];
-        foreach ($repository::formField() as $model) {
+        foreach ($repository::formField($action) as $model) {
             if (isset($model['blank'])) {
                 $array[$model['model']] = $model['blank'];
             } else {

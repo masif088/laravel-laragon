@@ -15,7 +15,7 @@ class User extends Component
     public $action;
     public function mount(){
         $this->model=\App\Repository\Form\User::class;
-        $this->data=form_model($this->model,$this->dataId);
+        $this->data=form_model($this->model,$this->dataId,$this->action);
     }
     protected function getRules()
     {

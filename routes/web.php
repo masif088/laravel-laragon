@@ -63,6 +63,7 @@ Route::middleware([
     })->name('dashboard');
 
 
+
     Route::get('packages', function () {
         return view('pages.packages.index');
     })->name('packages.index');
@@ -119,6 +120,13 @@ Route::middleware([
     Route::get('transaction/confirmation-payment/detail/{id}', function ($id) {
         return view('pages.transaction.confirmation-payment-detail', compact('id'));
     })->name('transaction.confirmation-payment.detail');
+
+    Route::get('transaction/daily',function (){
+        return view('pages.transaction.daily-transaction');
+    })->name('transaction.daily');
+    Route::get('transaction/daily/{date}',function ($date){
+        return view('pages.transaction.daily-transaction-detail',compact('date'));
+    })->name('transaction.daily.show');
 
     Route::get('customer/recapitulation', function () {
         return view('pages.customer.recapitulation');

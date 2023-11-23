@@ -19,6 +19,7 @@ class ArgonLayout extends Component
                 ['title' => 'Konsumen Aktif', 'icon' => 'fa-solid fa-users', 'color' => '#4B9D93', 'link' => route('admin.customer.active')],
                 ['title' => 'Konsumen Tenggang', 'icon' => 'fa-solid fa-users', 'color' => '#AA161C', 'link' => route('admin.customer.non-active')],
                 ['title' => 'Transaksi', 'header' => true],
+                ['title' => 'Riwayat Harian', 'icon' => 'fa-solid fa-ticket', 'color' => '#FFC700', 'link' => route('admin.transaction.daily')],
                 ['title' => 'Riwayat Pembayaran', 'icon' => 'fa-solid fa-ticket', 'color' => '#FFC700', 'link' => route('admin.transaction.payment-history')],
                 ['title' => 'Tagihan Konsumen', 'icon' => 'fa-solid fa-ticket', 'color' => '#AA161C', 'link' => route('admin.transaction.bill-customer')],
                 ['title' => 'Konfirmasi Pembayaran', 'icon' => 'fa-solid fa-ticket', 'color' => '#4B9D93', 'link' => route('admin.transaction.confirmation-payment')],

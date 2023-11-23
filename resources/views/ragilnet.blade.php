@@ -4,19 +4,21 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <title>Ragil.net</title>
+    <link rel="icon" type="image/png" href="{{ asset('frontpage/Assets/icon.png') }}"/>
     <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" rel="stylesheet">
     <link href="{{ asset('frontpage/style.css') }}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg fixed-top bg-body-tertiary">
     <div class="container-fluid ms-lg-5 me-lg-5">
-        <button aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+        <button aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler border-0"
                 data-bs-target="#navbarTogglerDemo01" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <img alt="Bootstrap" style="width: 10rem" src="{{ asset('frontpage/Assets/RAGILNET%201.png') }}" >
+            <img alt="Bootstrap" style="width: 10rem" src="{{ asset('frontpage/Assets/logo.png') }}" >
         </a>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -149,15 +151,15 @@
                     <b>Area</b>
                     <b>Lokasi</b>
                     <br>
-                    <img alt="Bootstrap" height="80" src="{{('frontpage/Assets/RAGILNET%201.png')}}" width="240">
+                    <img alt="Bootstrap" height="80" src="{{asset('frontpage/Assets/logo.png')}}" width="240">
                 </div>
             </div>
         </div>
         <div class="col-md-7 box2">
             <div class="col mx-auto">
-                <div class="box3"> Desa Wringinagung, Kecamatan kencong, Kabupaten Jember, Jawa Timur
+                <div class="box3"> Desa Wiringinagung, Kecamatan Jombang
                 </div>
-                <div class="box3"> Desa Wringinagung, Kecamatan kencong, Kabupaten Jember, Jawa Timur
+                <div class="box3"> Desa Ngampelrejo, Kecamatan Jombang
                 </div>
             </div>
         </div>
@@ -165,35 +167,45 @@
 </div>
 
 <div class="footer" style="width: 100%; margin-top: 100px; padding: 50px">
+    @php($data=\App\Models\RagilnetData::find(1))
     <div>
         <div class="row">
             <div class="col-md-6 align-middle">
                 <iframe allowfullscreen=""
-                         loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15796.835784825067!2d113.38525031302686!3d-8.181694719593175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd68a12b9011b4b%3A0xf41c7fa271290448!2sPd.%20Waluh%2C%20Wringin%20Agung%2C%20Kec.%20Jombang%2C%20Kabupaten%20Jember%2C%20Jawa%20Timur!5e0!3m2!1sid!2sid!4v1698200497623!5m2!1sid"
+                         loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3948.909067812768!2d113.38694337500945!3d-8.211899491820331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zOMKwMTInNDIuOCJTIDExM8KwMjMnMjIuMyJF!5e0!3m2!1sen!2sid!4v1700050086552!5m2!1sen!2sid"
                         style="border:0; width: 100%; height: 300px"
                         >
-
                 </iframe>
                 <p style="font-size: 25px"><b>Alamat Kami</b></p>
-                <p style="margin-top: -10px; font-size: 20px">Dusun Pondok waluh, Desa Wringinagung, kencong, Jember, Jawa Timur</p>
+                <p style="margin-top: -10px; font-size: 20px">{{ $data->address??'-' }}</p>
             </div>
             <div class="col-md-3">
                 <p style="font-size: 25px"><b>Butuh Bantuan</b></p>
                 <p style="font-size: 22px"><b>Ragil.net</b></p>
-                <br>
+
                 <p style="font-size: 22px"><b>Hubungi Kami</b></p>
-                <p style="margin-top: -10px; font-size: 20px">+62 812-3456-7890</p>
-                <br>
+                <a href="#" style="margin-top: -10px; font-size: 20px; text-decoration: none; color: white">
+                    <i class="fa-solid fa-phone"></i>
+                    {{ $data->phone_number??'-' }}
+                </a>
+
+                <br><br>
                 <p style="font-size: 22px"><b>Email</b></p>
-                <p style="margin-top: -10px; font-size: 20px">abcdefgh@gmail.com</p>
+                <p style="margin-top: -10px; font-size: 20px">{{ $data->email??'-' }}</p>
             </div>
             <div class="col-md-3">
                 <p style="font-size: 25px"><b>Ikuti Kami</b></p>
-                <img src="{{ asset('frontpage/Assets/new-Instagram-logo-white-glyph%201.png') }}" style="float: left">
 
-                <p style="padding-left: 10px"> &nbsp abcdefgh@gmail.com</p>
-                <img src="{{ asset('frontpage/Assets/facebook-logo-png-white-facebook-logo-png-white-facebook-icon-png--32%201.png') }}"  style="float: left">
-                <p>abcdefgh@gmail.com</p>
+                <a href="{{ $data->instagram_link??'#' }}" style="text-decoration: none; color: white">
+                    <i style="font-size: 30px" class="fa-brands fa-square-instagram"></i>
+                    &nbsp {{ $data->instagram??'-' }}
+                </a>
+                <br><br>
+                <a href="{{ $data->facebook_link??'#' }}" style="text-decoration: none; color: white">
+                    <i style="font-size: 30px" class="fa-brands fa-square-facebook"></i>
+                    &nbsp {{ $data->facebook??'-' }}
+                </a>
+
             </div>
         </div>
     </div>

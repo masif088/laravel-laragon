@@ -3,49 +3,19 @@
 
     <div class="flex-auto px-4">
         <div class="flex flex-wrap mx-3 text-xl lg:mt-5 xl:mt-5">
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                Nama Lengkap
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ $user->name }}
-            </div>
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                Alamat
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ !is_null($user->address)?$user->address:'-' }}
-            </div>
+            <x-argon.show-data title="Nama Lengkap" content="{{ $user->name }}"/>
+            <x-argon.show-data title="Alamat" content="{{ !is_null($user->address)?$user->address:'-' }}"/>
         </div>
 
         <div class="flex flex-wrap mx-3 text-xl lg:mt-5 xl:mt-5">
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                Paket Pilihan
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ !is_null($transaction)?$transaction->package->title:'-' }}
-            </div>
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                Biaya Berlangganan
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ !is_null($transaction)?$transaction->package->price:'-' }}
-            </div>
+            <x-argon.show-data title="Paket Pilihan" content="{{ !is_null($transaction)?$transaction->package->title:'-' }}"/>
+            <x-argon.show-data title="Biaya Berlangganan" content="{{ !is_null($transaction)?$transaction->package->price:'-' }}"/>
         </div>
 
 
         <div class="flex flex-wrap mx-3 text-xl lg:mt-5 xl:mt-5">
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                No. Telepon
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ $user->no_phone }}
-            </div>
-            <div class="max-w-full lg:px-10 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 py-2">
-                Email
-            </div>
-            <div class="max-w-full px-3 sm:w-full sm-max:w-full sm-max:mt-1  sm:flex-none xl:mb-0 xl:w-1/4 bg-gray-200 rounded py-2">
-                {{ $user->email }}
-            </div>
+            <x-argon.show-data title="No. Telepon" content="{{ $user->no_phone }}"/>
+            <x-argon.show-data title="Email" content="{{ $user->email }}"/>
         </div>
     </div>
     <br><br>

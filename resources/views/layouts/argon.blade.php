@@ -5,8 +5,8 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png"/>
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png"/>
-    <title>{{ config('app.name', 'Argon') }} @isset($header)
+    <link rel="icon" type="image/png" href="{{ asset('frontpage/Assets/icon.png') }}"/>
+    <title>Ragil.net @isset($header)
             | {{ $header }}
         @endisset</title>
     <!--     Fonts and icons     -->

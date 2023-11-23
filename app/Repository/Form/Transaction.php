@@ -52,7 +52,7 @@ class Transaction extends \App\Models\Transaction implements Form
         }
         $payment = [];
         foreach (Payment::get() as $p) {
-            $payment[] = ['value' => $p->id, 'title' => "$p->type - $p->name"];
+            $payment[] = ['value' => $p->id, 'title' => "$p->no_reference - $p->name"];
         }
 
         return [

@@ -9,14 +9,17 @@
         <div class="ml-6 translate-x-0"></div>
         <livewire:dashboard.cards/>
         {{--        <livewire:daily-transaction/>--}}
-        <div class="w-full max-w-full mt-3 lg:w-12/12 lg:flex-none">
-            <div
-                class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-                <livewire:table.main name="DailyTransaction" sort-field="date_payment"/>
-            </div>
-        </div>
         <livewire:recapitulation-transaction/>
         <livewire:dashboard.charts/>
+        <div class="w-full max-w-full mt-3 lg:w-6/12 lg:flex-none">
+            <div
+                  class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+                <div class="p-4">
+
+                    <livewire:form.general-data/>
+                </div>
+            </div>
+        </div>
 
         <div class="bg-green-success bg-yellow-primary px-5">
 

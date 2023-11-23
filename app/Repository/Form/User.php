@@ -3,6 +3,7 @@
 namespace App\Repository\Form;
 
 
+use App\Models\UserStatus;
 use App\Repository\Form;
 
 
@@ -41,8 +42,8 @@ class User extends \App\Models\User implements Form
                 ['value' => 3, 'title' => 'Pengguna'],
             ];
         }
-
-        return [
+        $active=eloquent_to_options(UserStatus::get());
+        $data=[
             [
                 'title' => 'Nama Lengkap',
                 'type' => 'text',
@@ -61,13 +62,7 @@ class User extends \App\Models\User implements Form
                 'model' => 'no_phone',
                 'required' => true,
             ],
-            [
-                'title' => 'Sebagai',
-                'type' => 'select',
-                'model' => 'role',
-                'options' => $role,
-                'required' => false,
-            ],
+
             [
                 'title' => 'Password',
                 'type' => 'password',
@@ -83,5 +78,25 @@ class User extends \App\Models\User implements Form
                 'placeholder' => '',
             ],
         ];
+        if ($params=="update"){
+            $data[]=
+                [
+                    'title' => 'Sebagai',
+                    'type' => 'select',
+                    'model' => 'role',
+                    'options' => $role,
+                    'required' => false,
+                ];
+        }if (auth()->user()->role==1){
+            $data[]=[
+                'title' => 'Keaktifan User',
+                'type' => 'select',
+                'model' => 'user_status_id',
+                'options' => $active,
+                'required' => true,
+            ];
+        }
+
+        return $data;
     }
 }
