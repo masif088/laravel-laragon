@@ -78,7 +78,7 @@ class User extends \App\Models\User implements Form
                 'placeholder' => '',
             ],
         ];
-        if ($params=="update"){
+        if ($params=="create"){
             $data[]=
                 [
                     'title' => 'Sebagai',
@@ -87,7 +87,8 @@ class User extends \App\Models\User implements Form
                     'options' => $role,
                     'required' => false,
                 ];
-        }if (auth()->user()->role==1){
+        }
+        if (auth()->user()->role==1){
             $data[]=[
                 'title' => 'Keaktifan User',
                 'type' => 'select',
