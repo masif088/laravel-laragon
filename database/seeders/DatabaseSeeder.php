@@ -20,37 +20,37 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         RagilnetData::create([]);
-//         \App\Models\User::factory()->create([
-//             'name' => 'admin3',
-//             'email' => 'admin@admin3',
-//             'password'=>bcrypt('adminadmin')
-//         ]);
+         \App\Models\User::create([
+             'name' => 'admin',
+             'email' => 'admin@admin',
+             'password'=>bcrypt('adminadmin')
+         ]);
 
-//        PackageStatus::create([
-//            'title' => 'Aktif'
-//        ]);
-//        PackageStatus::create([
-//            'title' => 'Tidak Aktif'
-//        ]);
-//
-//        TransactionStatus::create([
-//            'title' => 'Menunggu konfirmasi'
-//        ]);
-//        TransactionStatus::create([
-//            'title' => 'Telah dibayar'
-//        ]);
-//        TransactionStatus::create([
-//            'title' => 'Pembayaran dibatalkan'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Aktif'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Tenggang'
-//        ]);
-//        UserStatus::create([
-//            'title' => 'Non Aktif'
-//        ]);
+        PackageStatus::create([
+            'title' => 'Aktif'
+        ]);
+        PackageStatus::create([
+            'title' => 'Tidak Aktif'
+        ]);
+
+        TransactionStatus::create([
+            'title' => 'Menunggu konfirmasi'
+        ]);
+        TransactionStatus::create([
+            'title' => 'Telah dibayar'
+        ]);
+        TransactionStatus::create([
+            'title' => 'Pembayaran dibatalkan'
+        ]);
+        UserStatus::create([
+            'title' => 'Aktif'
+        ]);
+        UserStatus::create([
+            'title' => 'Tenggang'
+        ]);
+        UserStatus::create([
+            'title' => 'Non Aktif'
+        ]);
 //
 //        Payment::create([
 //            'name' => 'Bank BRI',
