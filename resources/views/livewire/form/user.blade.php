@@ -6,12 +6,8 @@
             <form wire:submit.prevent="{{ $action }}">
                 <x-argon.form-generator repositories="User" action="{{ $action }}"/>
 
-
-
-                @if($data['role']==3)
-
+                @if($data['role']==3 and $action=="create")
                     <div class="mt-3">
-
                             <label class="block text-sm font-bold dark:text-light" for="statusTransaction">Langsung transaksi pertama</label>
                         <select
                             id="statusTransaction"
@@ -30,7 +26,7 @@
 
                 <button
                     class="rounded-md bg-red-primary mt-3 float-right px-10 py-2 font-semibold text-white hover:bg-indigo-500 text-center">
-                    Tambah
+                    Submit
                 </button>
             </form>
         </div>

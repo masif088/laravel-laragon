@@ -12,9 +12,11 @@ class User extends \App\Models\User implements View
     public static function tableSearch($params = null): Builder
     {
         $query = $params['query'];
-        return empty($query) ? static::query()
-            : static::where('name', 'like', '%' . $query . '%')
-                ->orWhere('email', 'like', '%' . $query . '%');
+        return empty($query) ? static::query()->whereIn('user_status_id',[1,2])
+            : static::whereIn('user_status_id',[1,2])->where(function ($q) use ($query) {
+                $q->where('name', 'like', '%' . $query . '%')
+                    ->orWhere('email', 'like', '%' . $query . '%');
+            });
     }
 
     public static function tableView(): array
@@ -48,6 +50,7 @@ class User extends \App\Models\User implements View
         $action=[];
         if ($data->role==3 or auth()->user()->role==1){
             $action[]=['title' => 'Edit', 'icon' => 'fa fa-eye', 'bg'=>"blue", 'link' => route('admin.users.edit',$data->id)];
+            $action[]=['title' => 'Hapus', 'icon' => 'fa fa-trash', 'bg'=>"red", 'link' => route('admin.users.non-active',$data->id)];
         }
 
         return [

@@ -104,6 +104,14 @@ Route::middleware([
     Route::get('users/edit/{id}', function ($id) {
         return view('pages.users.edit', compact('id'));
     })->name('users.edit');
+    Route::get('users/non-active/{id}', function ($id) {
+        if (auth()->user()->role==1){
+            User::find($id)->update([
+                'user_status_id' => 3
+            ]);
+            return redirect()->back();
+        }
+    })->name('users.non-active');
 
     Route::get('transaction/create', function () {
         return view('pages.transaction.create');
@@ -150,6 +158,10 @@ Route::middleware([
     Route::get('customer/non-active', function () {
         return view('pages.customer.non-active');
     })->name('customer.non-active');
+
+    Route::get('customer/trash', function () {
+        return view('pages.customer.trash');
+    })->name('customer.trash');
 
 
     Route::get('download/transaction/{dateStart}/{dateEnd}', function ($dateStart, $dateEnd) {

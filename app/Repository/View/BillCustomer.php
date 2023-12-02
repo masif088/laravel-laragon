@@ -16,8 +16,8 @@ class BillCustomer extends \App\Models\User implements View
     {
         $query = $params['query'];
 
-        return empty($query) ? static::query()->where('role', '=', 3)
-            : static::query()->where('role', '=', 3)
+        return empty($query) ? static::query()->where('role', '=', 3)->whereIn('user_status_id',[1,2])
+            : static::query()->whereIn('user_status_id',[1,2])->where('role', '=', 3)
                 ->where(function ($q) use ($query) {
                     $q->where('name', 'like', '%' . $query . '%')
                         ->orWhere('email', 'like', '%' . $query . '%');

@@ -41,7 +41,7 @@ class Transaction extends \App\Models\Transaction implements Form
     public static function formField($params = null): array
     {
         $user = [];
-        foreach (\App\Models\User::where('role', '=', '3')->get() as $u) {
+        foreach (\App\Models\User::where('role', '=', '3')->whereIn('user_status_id',[1,2])->get() as $u) {
             $user[] = ['value' => $u->id, 'title' => "$u->name - $u->email"];
         }
         $package = [];

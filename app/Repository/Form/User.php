@@ -62,7 +62,6 @@ class User extends \App\Models\User implements Form
                 'model' => 'no_phone',
                 'required' => true,
             ],
-
             [
                 'title' => 'Password',
                 'type' => 'password',
@@ -78,6 +77,7 @@ class User extends \App\Models\User implements Form
                 'placeholder' => '',
             ],
         ];
+
         if ($params=="create"){
             $data[]=
                 [
