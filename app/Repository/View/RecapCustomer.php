@@ -59,9 +59,9 @@ class RecapCustomer extends \App\Models\User implements View
             $color="bg-red-primary";
         }
         $link=route('admin.transaction.recapitulation.show',$data->id);
-        $action[]=['title' => 'Edit', 'icon' => 'fa fa-pencil', 'bg'=>"blue", 'link' => route('admin.users.edit',$data->id)];
-        $action[]=['title' => 'Lihat', 'icon' => 'fa fa-eye', 'bg'=>"green", 'link' => $link];
-//        "<a href='$link' class='ml-8 rounded-2xl bg-green-success px-5 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Lihat</a>"
+        $link2=route('admin.users.edit',$data->id);
+
+
         return [
 
             ['type' => 'raw_html', 'data' => "
@@ -74,7 +74,9 @@ class RecapCustomer extends \App\Models\User implements View
             ['type' => 'string', 'data' => $data->payment_deadline,'text-align'=>'center'],
             ['type' => 'raw_html', 'text-align'=>'center', 'data' => "<div class='ml-8 rounded-2xl $color px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>$status->title</div>"],
             ['type' => 'string', 'text-align'=>'center', 'data' => $data->first_installation],
-            ['type' => 'action', 'data' => $action],
+            ['type' => 'raw_html', 'data' =>"<a href='$link' class='ml-8 rounded-2xl bg-green-success px-5 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Lihat</a>
+<a href='$link2' class='ml-8 rounded-2xl bg-yellow-primary px-5 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>Edit</a>
+"],
         ];
     }
 }
