@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 
-class PaymentHistory extends Transaction implements View
+class PaymentCancel extends Transaction implements View
 {
     protected $table = "transactions";
     public static function extras($datas=null):string{
@@ -29,7 +29,7 @@ Jumlah Uang : $total <br>
     {
         $query = $params['query'];
         $param1 = $params['param1'];
-        $builder = static::query()->where('transaction_status_id','=',2);
+        $builder = static::query()->where('transaction_status_id','=',3);
         if (!empty($param1)) {
             $builder->whereDate('date_payment', 'like', '%' . $param1 . '%');
         }
@@ -95,8 +95,8 @@ Jumlah Uang : $total <br>
         if (auth()->user()->role==1){
             $field[]=['type' => 'raw_html', 'data' => "
 <div class='row'>
-<div class='mb-2 py-1 rounded-2xl bg-red-primary  text-[0.8125rem] font-semibold leading-5 text-white text-center'>
-<a href='#' wire:click='setCancelPayment($data->id,3)' class='' >Batalkan</a>
+<div class='mb-2 py-1 rounded-2xl bg-green-success  text-[0.8125rem] font-semibold leading-5 text-white text-center'>
+<a href='#' wire:click='setCancelPayment($data->id,2)' class='' >Pulihkan</a>
 </div>
 
 </div>

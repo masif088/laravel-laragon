@@ -24,6 +24,7 @@ class ArgonLayout extends Component
                 ['title' => 'Riwayat Pembayaran', 'icon' => 'fa-solid fa-ticket', 'color' => '#FFC700', 'link' => route('admin.transaction.payment-history')],
                 ['title' => 'Tagihan Konsumen', 'icon' => 'fa-solid fa-ticket', 'color' => '#AA161C', 'link' => route('admin.transaction.bill-customer')],
                 ['title' => 'Konfirmasi Pembayaran', 'icon' => 'fa-solid fa-ticket', 'color' => '#4B9D93', 'link' => route('admin.transaction.confirmation-payment')],
+                ['title' => 'Pembayaran Dibatalkan', 'icon' => 'fa-solid fa-ticket', 'color' => '#AA161C', 'link' => route('admin.transaction.payment-cancel')],
                 ['title' => 'Akun', 'header' => true],
                 ['title' => 'Pendaftaran', 'icon' => 'fa-regular fa-square-plus', 'color' => '#AA161C', 'link' => route('admin.users.create')],
                 ['title' => 'Account', 'icon' => 'fa-solid fa-user', 'color' => '#4B9D93', 'link' => route('admin.users.index')],

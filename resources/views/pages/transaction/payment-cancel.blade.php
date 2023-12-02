@@ -1,10 +1,11 @@
 <x-argon-layout>
     <x-slot name="title">
-        Riwayat Pembayaran
+        Riwayat Pembayaran Dibatalkan
     </x-slot>
     <x-slot name="breadcrumbs">
         Transaksi => #;
         Riwayat Pembayaran => #;
+        Riwayat Pembayaran Dibatalkan=> #;
     </x-slot>
     <div>
 
@@ -12,11 +13,7 @@
             <div
                 class="border-black/12.5 dark:bg-slate-850 dark:shadow-dark-xl shadow-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
                 <div class="flex-auto p-4 mt-4">
-                    <a href="{{ route('admin.transaction.create') }}"
-                       class="rounded-md bg-green-success px-3 py-2 font-semibold text-white text-center">
-                        TAMBAH PEMBAYARAN
-                    </a>
-                    <livewire:table.payment-history name="PaymentHistory" :date-search="true" :extras="true"/>
+                    <livewire:table.payment-history name="PaymentCancel" :date-search="true" :extras="true"/>
                 </div>
             </div>
         </div>

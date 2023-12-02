@@ -126,6 +126,9 @@ Route::middleware([
     Route::get('transaction/payment-history', function () {
         return view('pages.transaction.payment-history');
     })->name('transaction.payment-history');
+    Route::get('transaction/payment-cancel', function () {
+        return view('pages.transaction.payment-cancel');
+    })->name('transaction.payment-cancel');
     Route::get('transaction/bill-customer', function () {
         return view('pages.transaction.bill-customer');
     })->name('transaction.bill-customer');
