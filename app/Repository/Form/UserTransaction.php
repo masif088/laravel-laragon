@@ -9,7 +9,7 @@ use App\Repository\Form;
 use Carbon\Carbon;
 
 
-class Transaction extends \App\Models\Transaction implements Form
+class UserTransaction extends \App\Models\Transaction implements Form
 {
     protected $table = 'transactions';
 
@@ -25,10 +25,10 @@ class Transaction extends \App\Models\Transaction implements Form
     public static function formRules(): array
     {
         return [
-            "data.user_id" => 'required',
-            'data.package_id' => 'required',
-            'data.payment_id' => 'required',
-            'data.date_payment' => 'required',
+            'dataPackage.package_id' => 'required',
+            'dataPackage.payment_id' => 'required',
+            'dataPackage.date_payment' => 'required',
+            'dataPackage.money' => 'required',
         ];
     }
 
@@ -40,10 +40,7 @@ class Transaction extends \App\Models\Transaction implements Form
 
     public static function formField($params = null): array
     {
-        $user = [];
-        foreach (\App\Models\User::where('role', '=', '3')->get() as $u) {
-            $user[] = ['value' => $u->id, 'title' => "$u->name - $u->email"];
-        }
+
         $package = [];
         foreach (Package::get() as $p) {
             $price = thousand_format($p->price);
@@ -55,13 +52,6 @@ class Transaction extends \App\Models\Transaction implements Form
         }
 
         return [
-            [
-                'title' => 'Nama Lengkap',
-                'type' => 'select',
-                'model' => 'user_id',
-                'options' => $user,
-                'required' => true,
-            ],
             [
                 'title' => 'Paket Pilihan',
                 'type' => 'select',

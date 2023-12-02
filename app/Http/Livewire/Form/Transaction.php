@@ -25,6 +25,7 @@ class Transaction extends Component
 
     public function create()
     {
+
         $this->validate();
         $this->resetErrorBag();
         $user = User::find($this->data['user_id']);
@@ -40,6 +41,8 @@ class Transaction extends Component
         $this->data['date_end'] = $startDate->addMonth();
         $this->data['transaction_status_id'] = 2;
         $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
+        $this->data['money']=\App\Models\Package::find($this->data['package_id'])->price;
+
         $this->model::create($this->data);
         $user = User::find($this->data['user_id']);
         $user->update([
