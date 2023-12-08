@@ -70,9 +70,9 @@ Jumlah Uang : $total <br>
             ['label' => 'Paket Pilihan'],
             ['label' => 'Nominal'],
             ];
-        if (auth()->user()->role==1){
-            $field[]=['label' => '#'];
-        }
+//        if (auth()->user()->role==1){
+//            $field[]=['label' => '#'];
+//        }
         return $field;
     }
 
@@ -88,20 +88,20 @@ Jumlah Uang : $total <br>
             <div class='ml-2 flex-auto'>
             <div class='font-medium'>$user->name</div>
             <div class='text-slate-500'>$user->email</div></div></div>"],
-            ['type' => 'string', 'data' => $data->package->title],
+            ['type' => 'raw_html', 'data' => $data->package->title.'<br>'."$data->month-$data->year"],
             ['type' => 'string', 'data' => "Rp. " . thousand_format($data->money)],
 
         ];
-        if (auth()->user()->role==1){
-            $field[]=['type' => 'raw_html', 'data' => "
-<div class='row'>
-<div class='mb-2 py-1 rounded-2xl bg-red-primary  text-[0.8125rem] font-semibold leading-5 text-white text-center'>
-<a href='#' wire:click='setCancelPayment($data->id,3)' class='' >Batalkan</a>
-</div>
-
-</div>
-"];
-        }
+//        if (auth()->user()->role==1){
+//            $field[]=['type' => 'raw_html', 'data' => "
+//<div class='row'>
+//<div class='mb-2 py-1 rounded-2xl bg-red-primary  text-[0.8125rem] font-semibold leading-5 text-white text-center'>
+//<a href='#' wire:click='setCancelPayment($data->id,3)' class='' >Batalkan</a>
+//</div>
+//
+//</div>
+//"];
+//        }
 
         return $field;
     }

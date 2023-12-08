@@ -18,7 +18,7 @@ class User extends \App\Models\User implements Form
             'data.email' => 'required|email',
             'data.no_phone' => 'required',
             'data.role' => 'required',
-            'data.password' => 'required',
+            'data.password_show' => 'required',
             'data.address' => 'required',
         ];
     }
@@ -64,8 +64,8 @@ class User extends \App\Models\User implements Form
             ],
             [
                 'title' => 'Password',
-                'type' => 'password',
-                'model' => 'password',
+                'type' => 'text',
+                'model' => 'password_show',
                 'required' => false,
                 'placeholder' => '',
             ],

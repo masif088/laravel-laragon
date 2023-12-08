@@ -3,6 +3,7 @@
 namespace App\Repository\View;
 
 
+use App\Models\Transaction;
 use App\Repository\View;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
@@ -15,13 +16,21 @@ class BillCustomer extends \App\Models\User implements View
     public static function tableSearch($params = null): Builder
     {
         $query = $params['query'];
+        $now
+            =Carbon::now();
 
-        return empty($query) ? static::query()->where('role', '=', 3)->whereIn('user_status_id',[1,2])
-            : static::query()->whereIn('user_status_id',[1,2])->where('role', '=', 3)
-                ->where(function ($q) use ($query) {
-                    $q->where('name', 'like', '%' . $query . '%')
-                        ->orWhere('email', 'like', '%' . $query . '%');
-                });
+        return empty($query) ? static::query()->where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
+            $q->where('month', '=', $now->month)->where('year', '=', $now->year);
+        }) : static::
+        where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
+            $q->where('month', '=', $now->month)->where('year', '=', $now->year);
+        })->where(function ($q) use ($query) {
+            $q->where('name', 'like', '%' . $query . '%')->orWhere('email', 'like', '%' . $query . '%')->orWhere('address', 'like', '%' . $query . '%')->orWhereHas('userStatus', function ($q) use ($query) {
+                $q->where('title', 'like', '%' . $query . '%');
+            });
+        });
+
+
 
 
     }
@@ -39,20 +48,27 @@ class BillCustomer extends \App\Models\User implements View
             ['label' => 'User Pengguna', 'width' => '25%'],
             ['label' => 'Address'],
             ['label' => 'Status', 'text-align' => 'center'],
-            ['label' => 'Tenggat waktu', 'text-align' => 'center'],
-            ['label' => ''],
+            ['label' => 'Aksi'],
         ];
     }
 
     public static function tableData($data = null): array
     {
-        if (Carbon::now() < Carbon::parse($data->payment_deadline)) {
-            $status = "Sudah Membayar";
+        $now = Carbon::now();
+        $transaction = Transaction::where('user_id','=',$data->id)
+            ->where('month','=',$now->month)
+            ->where('year','=',$now->year)
+            ->first();
+
+        if ($transaction==null){
+            $color = "bg-yellow-primary";
+            $status='Tenggang';
+        }else{
             $color = "bg-green-success";
-        } else {
-            $status = "Belum Membayar";
-            $color = "bg-red-primary";
+            $status='Aktif';
         }
+
+
         $user = $data;
         $link = route('admin.transaction.bill-customer-user',$user->id);
         return [
@@ -65,7 +81,6 @@ class BillCustomer extends \App\Models\User implements View
             <div class='text-slate-500'>$user->email</div></div></div>"],
             ['type' => 'string', 'data' => $user->address],
             ['type' => 'raw_html', 'data' => "<div class='ml-8 rounded-2xl $color px-3 py-2 text-[0.8125rem] font-semibold leading-5 text-white text-center'>$status</div>"],
-            ['type' => 'string', 'text-align' => 'center', 'data' => $user->payment_deadline],
             ['type' => 'raw_html', 'data' => "<div class='ml-8 rounded-2xl bg-red-primary px-3 py-2 text-[0.8125rem]  text-white text-center'>
 <a href='$link' class='font-semibold leading-5'>Lakukan Penagihan</a>
 </div>"],

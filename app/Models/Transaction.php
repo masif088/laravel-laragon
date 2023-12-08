@@ -12,12 +12,12 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $transaction_status_id
  * @property string $date_payment
  * @property integer $money
- * @property string $date_start
- * @property string $date_end
  * @property string $no_invoice
  * @property string $created_at
  * @property string $updated_at
  * @property string $thumbnail
+ * @property integer $month
+ * @property integer $year
  * @property Package $package
  * @property Payment $payment
  * @property TransactionStatus $transactionStatus
@@ -28,7 +28,7 @@ class Transaction extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'package_id', 'payment_id', 'transaction_status_id', 'date_payment', 'money', 'date_start', 'date_end', 'no_invoice', 'created_at', 'updated_at', 'thumbnail'];
+    protected $fillable = ['user_id', 'package_id', 'payment_id', 'transaction_status_id', 'date_payment', 'money', 'no_invoice', 'created_at', 'updated_at', 'thumbnail', 'month', 'year'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -21,6 +21,8 @@ class Transaction extends Component
     {
         $this->model = \App\Repository\Form\Transaction::class;
         $this->data = form_model($this->model, $this->dataId);
+        $this->data['year']=Carbon::now()->year;
+        $this->data['month']=Carbon::now()->month;
     }
 
     public function create()
@@ -37,17 +39,12 @@ class Transaction extends Component
         } else {
             $startDate = Carbon::parse($user->payment_deadline);
         }
-        $this->data['date_start'] = $startDate;
-        $this->data['date_end'] = $startDate->addMonth();
         $this->data['transaction_status_id'] = 2;
         $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
         $this->data['money']=\App\Models\Package::find($this->data['package_id'])->price;
 
         $this->model::create($this->data);
-        $user = User::find($this->data['user_id']);
-        $user->update([
-            'payment_deadline' => $startDate->addMonth()
-        ]);
+
         $this->alert('success', 'Bermasil menambahkan pembayaran baru');
         $this->emit('redirect', route('admin.transaction.payment-history'));
     }

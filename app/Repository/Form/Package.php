@@ -44,13 +44,13 @@ class Package extends \App\Models\Package implements Form
             ],
             [
                 'title' => 'Deskripsi',
-                'type' => 'editor',
+                'type' => 'textarea',
                 'model' => 'description',
                 'required' => true,
             ],
             [
                 'title' => 'Deskripsi singkat',
-                'type' => 'editor',
+                'type' => 'textarea',
                 'model' => 'short_description',
                 'required' => true,
             ],
@@ -64,7 +64,6 @@ class Package extends \App\Models\Package implements Form
                 ],
                 'required' => true,
             ],
-
         ];
     }
 }

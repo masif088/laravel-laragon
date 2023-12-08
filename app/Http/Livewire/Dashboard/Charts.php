@@ -22,11 +22,11 @@ class Charts extends Component
             ->where('transaction_status_id', '=', 2)
             ->whereYear('date_payment', '=', $this->now->year)
             ->select(DB::raw('sum(money) as `total`'),
-                DB::raw('MONTH(date_payment) month'))
-            ->groupby('month')
+                DB::raw('MONTH(date_payment) month_payment'))
+            ->groupby('month_payment')
             ->get();
         foreach ($transactions as $transaction) {
-            $t[$transaction->month] = $transaction->total;
+            $t[$transaction->month_payment] = $transaction->total;
         }
         $this->chartIncome = [
             'type' => 'line',

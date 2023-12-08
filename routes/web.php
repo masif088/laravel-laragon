@@ -123,15 +123,23 @@ Route::middleware([
     Route::get('transaction/recapitulation/show/{id}', function ($id) {
         return view('pages.transaction.recapitulation-show', compact('id'));
     })->name('transaction.recapitulation.show');
+
     Route::get('transaction/payment-history', function () {
         return view('pages.transaction.payment-history');
     })->name('transaction.payment-history');
+
     Route::get('transaction/payment-cancel', function () {
         return view('pages.transaction.payment-cancel');
     })->name('transaction.payment-cancel');
+
     Route::get('transaction/bill-customer', function () {
         return view('pages.transaction.bill-customer');
     })->name('transaction.bill-customer');
+
+    Route::get('transaction/cancel-transaction', function () {
+        return view('pages.transaction.cancel-transaction');
+    })->name('transaction.cancel-transaction');
+
     Route::get('transaction/bill-customer/user/{id}', function ($id) {
         return view('pages.transaction.bill-customer-user', compact('id'));
     })->name('transaction.bill-customer-user');

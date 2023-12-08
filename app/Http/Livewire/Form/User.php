@@ -41,6 +41,7 @@ class User extends Component
             $this->data['first_installation']=$startDate;
             $this->data['payment_deadline']=$startDate;
         }
+        $this->data['password']=$this->data['password_show'];
         $this->data['password']=bcrypt($this->data['password']);
         $user=$this->model::create($this->data);
         if ($this->data['role']==3)
@@ -48,8 +49,6 @@ class User extends Component
             if ($this->statusTransaction){
                 $this->data['user_id']=$user->id;
                 $this->data['money']=\App\Models\Package::find($this->data['package_id'])->price;
-                $this->data['date_start'] = $startDate;
-                $this->data['date_end'] = $startDate->addMonth();
                 $this->data['transaction_status_id'] = 2;
                 $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
 

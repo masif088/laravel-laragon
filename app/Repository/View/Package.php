@@ -44,7 +44,7 @@ class Package extends \App\Models\Package implements View
             ['label' => 'Penjelaskan Singkat','sort'=>'short_description'],
             ['label' => 'Status', 'text-align' => 'center', 'sort'=>'package_status_id'],
             ['label' => 'Pengguna Aktif', 'width' => '15%'],
-            ['label' => ''],
+            ['label' => 'Aksi'],
         ];
     }
 
@@ -62,7 +62,10 @@ class Package extends \App\Models\Package implements View
 
         $count='';
         $now = Carbon::now();
-        $t= Transaction::where('package_id','=',$data->id)->whereDate('date_start','<',$now)->whereDate('date_end','>',$now)->get()->count();
+        $t= Transaction::where('package_id','=',$data->id)
+            ->where('month','=',$now->month)
+            ->where('year','=',$now->year)
+            ->get()->count();
 
         return [
             ['type' => 'index'],
