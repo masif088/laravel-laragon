@@ -15,11 +15,11 @@
                             name="statusTransaction"
 
                             class="bg-gray-200 appearance-none border-1 border border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none dark:border-primary-light focus:bg-gray-100 dark:bg-dark dark:text-light focus:dark:border-white">
-                                <option value="true">Iya</option>
-                                <option value="false">Tidak</option>
+                                <option value="1">Iya</option>
+                                <option value="0">Tidak</option>
                         </select>
                     </div>
-                    @if($statusTransaction)
+                    @if($statusTransaction==1)
                         <x-argon.form-generator repositories="UserTransaction" action="{{ $action }}"/>
                     @endif
                 @endif

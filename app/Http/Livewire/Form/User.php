@@ -17,7 +17,7 @@ class User extends Component
     public $model;
     public $action;
     public function mount(){
-        $this->statusTransaction=false;
+        $this->statusTransaction=0;
         $this->model=\App\Repository\Form\User::class;
         $this->data=form_model($this->model,$this->dataId,$this->action);
 
