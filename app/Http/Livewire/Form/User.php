@@ -65,6 +65,8 @@ class User extends Component
     public function update(){
         $this->validate();
         $this->resetErrorBag();
+        $this->data['password']=$this->data['password_show'];
+        $this->data['password']=bcrypt($this->data['password']);
         $this->model::find($this->dataId)->update($this->data);
         $this->alert('success', 'Bermasil menambahkan pengguna baru');
         $this->emit('redirect',route('admin.users.index'));
