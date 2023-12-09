@@ -37,7 +37,6 @@ class User extends Component
         $this->resetErrorBag();
         $startDate=Carbon::now();
         if ($this->data['role']==3){
-            $this->data['user_status_id']=2;
             $this->data['first_installation']=$startDate;
         }
         $this->data['password']=$this->data['password_show'];
@@ -50,11 +49,7 @@ class User extends Component
                 $this->data['money']=\App\Models\Package::find($this->data['package_id'])->price;
                 $this->data['transaction_status_id'] = 2;
                 $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();
-
                 \App\Models\Transaction::create($this->data);
-                $user->update([
-                    'user_status_id'=>1,
-                ]);
             }
         }
         $this->alert('success', 'Bermasil menambahkan pengguna baru');
