@@ -86,6 +86,7 @@ class RecapCustomer extends \App\Models\User implements View
         $transaction = Transaction::where('user_id','=',$data->id)
             ->where('month','=',$now->month)
             ->where('year','=',$now->year)
+            ->where('transaction_status_id',2)
             ->first();
 
         if ($transaction==null){
