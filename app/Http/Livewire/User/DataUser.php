@@ -12,8 +12,7 @@ class DataUser extends Component
     public function mount(){
         $now=Carbon::now();
         $this->transaction = Transaction::where('user_id','=',auth()->user()->id)
-            ->whereDate('date_start','<',$now)
-            ->whereDate('date_end','>',$now)
+            ->orderByDesc('id')
             ->first();
     }
     public function render()

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\User;
 
 use App\Http\Livewire\Form\Transaction;
+use App\Models\Package;
 use App\Repository\Form\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Storage;
@@ -35,21 +36,21 @@ class PaymentConfirmation extends Component
         $this->data['user_id'] = auth()->user()->id;
         $this->data['transaction_status_id'] = 1;
         $this->data['no_invoice'] = $this->model::getCode();
+        $this->data['money'] = Package::find($this->data['package_id'])->price;
         if ($this->data['thumbnail_state'] != null) {
-            $image = Image::make($this->data['thumbnail_state'])
-                ->resize(1920, null, function ($constraint) {
-                    $constraint->aspectRatio();
-                });
-            $image->stream();
+
+//            $image = Image::make($this->data['thumbnail_state'])
+//                ->resize(1920, null, function ($constraint) {
+//                    $constraint->aspectRatio();
+//                });
+//            $image->stream();
             $filename = Str::slug($this->data['no_invoice']). '.' . $this->data['thumbnail_state']->getClientOriginalExtension();
-            Storage::disk('local')->put('public/payment_confirmation/' . $filename, $image, 'public');
+            $this->data['thumbnail_state']->storeAs('public/payment_confirmation',Str::slug($this->data['no_invoice']).'.' . $this->data['thumbnail_state']->getClientOriginalExtension());
+//            Storage::disk('local')->put('public/payment_confirmation/' . $filename, $image, 'public');
             $this->data['thumbnail'] = 'payment_confirmation/' . $filename;
         }
         $this->model::create($this->data);
 
-//        $user->update([
-//            'payment_deadline' => $startDate->addMonth()
-//        ]);
         $this->alert('success', 'Berhasil melakukan konfirmasi silahkan tunggu');
         $this->emit('redirect', route('member.payment'));
     }

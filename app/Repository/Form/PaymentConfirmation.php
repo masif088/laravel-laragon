@@ -28,8 +28,10 @@ class PaymentConfirmation extends \App\Models\Transaction implements Form
             'data.package_id' => 'required',
             'data.payment_id' => 'required',
             'data.date_payment' => 'required',
-            'data.money' => 'required',
+            'data.year' => 'required',
+            'data.month' => 'required',
             'data.thumbnail_state' => 'required',
+
         ];
     }
 
@@ -54,6 +56,26 @@ class PaymentConfirmation extends \App\Models\Transaction implements Form
         foreach (Payment::get() as $p) {
             $payment[] = ['value' => $p->id, 'title' => "$p->type - $p->name"];
         }
+        $month=[
+            ['value' => 1, 'title' => "Januari"],
+            ['value' => 2, 'title' => "Februari"],
+            ['value' => 3, 'title' => "Maret"],
+            ['value' => 4, 'title' => "April"],
+            ['value' => 5, 'title' => "Mei"],
+            ['value' => 6, 'title' => "Juni"],
+            ['value' => 7, 'title' => "Juli"],
+            ['value' => 8, 'title' => "Agustus"],
+            ['value' => 9, 'title' => "September"],
+            ['value' => 10, 'title' => "Oktober"],
+            ['value' => 11, 'title' => "November"],
+            ['value' => 12, 'title' => "Desember"],
+        ];
+        $now=Carbon::now();
+        $year=[
+            ['value' => $now->year-1, 'title' => $now->year-1],
+            ['value' => $now->year, 'title' => $now->year],
+            ['value' => $now->year+1, 'title' => $now->year+1],
+        ];
 
         return [
 //            [
@@ -84,11 +106,17 @@ class PaymentConfirmation extends \App\Models\Transaction implements Form
                 'required' => true,
             ],
             [
-                'title' => 'Nominal Pembayaran',
-                'type' => 'number',
-                'model' => 'money',
+                'title' => 'Bulan Pembayaran',
+                'type' => 'select',
+                'model' => 'month',
+                'options' => $month,
                 'required' => true,
-                'placeholder' => '',
+            ],[
+                'title' => 'Tahun Pembayaran',
+                'type' => 'select',
+                'model' => 'year',
+                'options' => $year,
+                'required' => true,
             ],
             [
                 'title' => 'Bukti Transfer',
