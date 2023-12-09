@@ -19,10 +19,13 @@ class BillCustomer extends \App\Models\User implements View
         $now
             =Carbon::now();
 
-        return empty($query) ? static::query()->where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
+        return empty($query) ? static::query()->where('role', '=', 3)
+            ->where('user_status_id','=',1)
+            ->whereDoesntHave('transactions', function ($q) use ($now) {
             $q->where('month', '=', $now->month)->where('year', '=', $now->year)->where('transaction_status_id','=',2);
         }) : static::
-        where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
+        where('role', '=', 3)
+            ->where('user_status_id','=',1)->whereDoesntHave('transactions', function ($q) use ($now) {
             $q->where('month', '=', $now->month)->where('year', '=', $now->year)->where('transaction_status_id','=',2);
         })->where(function ($q) use ($query) {
             $q->where('name', 'like', '%' . $query . '%')->orWhere('email', 'like', '%' . $query . '%')->orWhere('address', 'like', '%' . $query . '%')->orWhereHas('userStatus', function ($q) use ($query) {
