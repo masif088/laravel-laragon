@@ -68,6 +68,7 @@ class Package extends \App\Models\Package implements View
         $t= Transaction::where('package_id','=',$data->id)
             ->where('month','=',$now->month)
             ->where('year','=',$now->year)
+            ->where('transaction_status_id','=',2)
             ->get()->count();
 
         return [

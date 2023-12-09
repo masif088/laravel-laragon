@@ -20,10 +20,10 @@ class BillCustomer extends \App\Models\User implements View
             =Carbon::now();
 
         return empty($query) ? static::query()->where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
-            $q->where('month', '=', $now->month)->where('year', '=', $now->year);
+            $q->where('month', '=', $now->month)->where('year', '=', $now->year)->where('transaction_status_id','=',2);
         }) : static::
         where('role', '=', 3)->whereDoesntHave('transactions', function ($q) use ($now) {
-            $q->where('month', '=', $now->month)->where('year', '=', $now->year);
+            $q->where('month', '=', $now->month)->where('year', '=', $now->year)->where('transaction_status_id','=',2);
         })->where(function ($q) use ($query) {
             $q->where('name', 'like', '%' . $query . '%')->orWhere('email', 'like', '%' . $query . '%')->orWhere('address', 'like', '%' . $query . '%')->orWhereHas('userStatus', function ($q) use ($query) {
                 $q->where('title', 'like', '%' . $query . '%');
@@ -58,6 +58,7 @@ class BillCustomer extends \App\Models\User implements View
         $transaction = Transaction::where('user_id','=',$data->id)
             ->where('month','=',$now->month)
             ->where('year','=',$now->year)
+            ->where('transaction_status_id','=',2)
             ->first();
 
         if ($transaction==null){
