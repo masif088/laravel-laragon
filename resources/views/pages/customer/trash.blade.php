@@ -1,10 +1,10 @@
 <x-argon-layout>
     <x-slot name="title">
-        User Tidak Aktif
+        Konsumen Tidak Aktif
     </x-slot>
     <x-slot name="breadcrumbs">
         Rekap User => #;
-        Kosumen Tidak Aktif => #;
+        Konsumen Tidak Aktif => #;
     </x-slot>
     <div>
         <div class="w-full max-w-full px-3 mt-0 lg:w-12/12 lg:flex-none">

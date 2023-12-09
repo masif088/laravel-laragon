@@ -1,10 +1,10 @@
 <x-argon-layout>
     <x-slot name="title">
-        Kosumen Aktif
+        Konsumen Aktif
     </x-slot>
     <x-slot name="breadcrumbs">
         Rekap User => #;
-        Kosumen Aktif => #;
+        Konsumen Aktif => #;
     </x-slot>
     <div>
         <div class="w-full max-w-full px-3 mt-0 lg:w-12/12 lg:flex-none">

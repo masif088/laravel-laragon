@@ -1,6 +1,6 @@
 <x-argon-layout>
     <x-slot name="title">
-        User
+        Pembatalan Pembayaran
     </x-slot>
     <x-slot name="breadcrumbs">
         User => #;

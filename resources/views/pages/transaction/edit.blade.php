@@ -12,7 +12,6 @@
                 <div class="flex-auto p-5 ">
                     <h3 class="mb-5">Ubah Pembayaran Pembayaran</h3>
                     <livewire:form.transaction action="update" :data-id="$id"/>
-
                 </div>
             </div>
         </div>

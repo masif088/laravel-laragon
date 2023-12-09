@@ -1,10 +1,10 @@
 <x-argon-layout>
     <x-slot name="title">
-        Konfirmasi Tagihan Konsumen
+        Konfirmasi Pembayaran Konsumen
     </x-slot>
     <x-slot name="breadcrumbs">
         Transaksi => #;
-        Konfirmasi Tagihan Konsumen => #;
+        Konfirmasi Pembayaran Konsumen => #;
     </x-slot>
     <div>
 
