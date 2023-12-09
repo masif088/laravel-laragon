@@ -42,6 +42,7 @@ class User extends Component
         $this->validate();
         $this->resetErrorBag();
         $startDate=Carbon::now();
+        $this->data['user_status_id']=1;
         if ($this->data['role']==3){
             $this->data['first_installation']=$startDate;
         }

@@ -88,15 +88,7 @@ class User extends \App\Models\User implements Form
                     'required' => false,
                 ];
         }
-        if (auth()->user()->role==1){
-            $data[]=[
-                'title' => 'Keaktifan User',
-                'type' => 'select',
-                'model' => 'user_status_id',
-                'options' => $active,
-                'required' => true,
-            ];
-        }
+
 
         return $data;
     }
