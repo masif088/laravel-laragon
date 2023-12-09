@@ -22,7 +22,7 @@
 
     <x-argon.simple-card
         title="TAGIHAN SELANJUTNYA"
-        value="{{ !is_null(auth()->user()->payment_deadline)?auth()->user()->payment_deadline:'-' }}"
+        value="Tanggal 10 setiap bulan"
         icon="fa-solid fa-money-bill text-red-primary"
         icon-background="bg-yellow-primary"
     />
