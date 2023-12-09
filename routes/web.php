@@ -169,7 +169,7 @@ Route::middleware([
     Route::get('download/transaction/{dateStart}/{dateEnd}', function ($dateStart, $dateEnd) {
         $transactions = Transaction::whereBetween('date_payment', [$dateStart, $dateEnd])
             ->where('transaction_status_id',2)->get();
-        $filename = "rekap-transaksi-$dateStart-$dateEnd";
+        $filename = "rekap-transaksi-$dateStart-$dateEnd.csv";
         $headers = array(
             "Content-type" => "text/csv",
             "Content-Disposition" => "attachment; filename=$filename",
