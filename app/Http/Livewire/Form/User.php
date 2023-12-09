@@ -11,6 +11,7 @@ class User extends Component
 {
     use LivewireAlert;
     public $data;
+    public $email;
     public $dataId;
 
     public $statusTransaction;
@@ -34,6 +35,11 @@ class User extends Component
     }
 
     public function create(){
+        if (\App\Models\User::where('email','=',$this->data['email'])->first()!=null){
+            $this->alert('error', 'email telah digunakan');
+            return;
+        }
+        $this->validate();
         $this->resetErrorBag();
         $startDate=Carbon::now();
         if ($this->data['role']==3){
