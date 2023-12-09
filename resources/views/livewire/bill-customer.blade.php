@@ -25,7 +25,7 @@
                 <div
                     class="max-w-full px-3 sm:w-full sm-max:w-full md:w-full sm-max:mt-1  sm:flex-none xl:mb-0  bg-gray-200 rounded py-2">
                     Haloo Pelanggan Internet Ragil.net <br>
-                    Yth. Saudara/i {{ str_replace(" "," ",$user->name) }}, Mengingatkan untuk segera melakukan pembayaran internet berlangganan pada bulan Oktober sebesar Rp {{thousand_format( !is_null($transaction)?$transaction->package->price:0 )}}. Tenggat waktu pembayaran anda adalah Tanggal {{ Carbon::parse($user->payment_deadline)->format('d-m-Y') }}. Segera lakukan pembayaran sebelum itu, jika melewati batas otomatis akan kami non aktifkan sementara. Untuk pengaktifan segera hubungi nomor ini kembali.
+                    Yth. Saudara/i {{ str_replace(" "," ",$user->name) }}, Mengingatkan untuk segera melakukan pembayaran internet berlangganan pada bulan Oktober sebesar Rp {{thousand_format( !is_null($transaction)?$transaction->package->price:0 )}}. Tenggat waktu pembayaran anda adalah Tanggal 10 pada setiap bulan. Segera lakukan pembayaran sebelum itu, jika melewati batas otomatis akan kami non aktifkan sementara. Untuk pengaktifan segera hubungi nomor ini kembali.
                     <br>
                     Terimakasih
                     <br><br>
@@ -33,7 +33,7 @@
                     Salam,<br>
                     Admin Ragil.net
                 </div>
-                <a href="https://wa.me/{{ $this->waNumber }}?text=Haloo%20Pelanggan%20Internet%20Ragil.net%0AYth.%20Saudara/i%20{{ str_replace(" ","%20",$user->name) }},%0A%0AMengingatkan%20untuk%20segera%20melakukan%20pembayaran%20internet%20berlangganan%20pada%20bulan%20Oktober%20sebesar%20Rp%20{{thousand_format( !is_null($transaction)?$transaction->package->price:0 )}}.%20Tenggat%20waktu%20pembayaran%20anda%20adalah%20Tanggal%20{{ Carbon::parse($user->payment_deadline)->format('d-m-Y') }}.%20Segera%20lakukan%20pembayaran%20sebelum%20itu,%20jika%20melewati%20batas%20otomatis%20akan%20kami%20non%20aktifkan%20sementara.%20Untuk%20pengaktifan%20segera%20hubungi%20nomor%20ini%20kembali.%0ATerimakasih%0A%0ASalam,%0AAdmin%20Ragil.net"
+                <a href="https://wa.me/{{ $this->waNumber }}?text=Haloo%20Pelanggan%20Internet%20Ragil.net%0AYth.%20Saudara/i%20{{ str_replace(" ","%20",$user->name) }},%0A%0AMengingatkan%20untuk%20segera%20melakukan%20pembayaran%20internet%20berlangganan%20pada%20bulan%20Oktober%20sebesar%20Rp%20{{thousand_format( !is_null($transaction)?$transaction->package->price:0 )}}.%20Tenggat%20waktu%20pembayaran%20anda%20adalah%20Tanggal%2010pada%20setiap%20bulan.%20Segera%20lakukan%20pembayaran%20sebelum%20itu,%20jika%20melewati%20batas%20otomatis%20akan%20kami%20non%20aktifkan%20sementara.%20Untuk%20pengaktifan%20segera%20hubungi%20nomor%20ini%20kembali.%0ATerimakasih%0A%0ASalam,%0AAdmin%20Ragil.net"
                    class="rounded-md bg-red-primary mt-3 float-right xl:mx-10 px-10 py-2 font-semibold text-white text-center">
                     Lakukan Penagihan Melalui WhatsApp
                 </a>

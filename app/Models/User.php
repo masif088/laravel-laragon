@@ -28,7 +28,6 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string $profile_photo_path
  * @property string $created_at
  * @property string $updated_at
- * @property string $payment_deadline
  * @property string $first_installation
  * @property string $address
  * @property string $no_phone
@@ -80,7 +79,7 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    protected $fillable = ['password_show','user_status_id', 'name', 'email', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'two_factor_confirmed_at', 'remember_token', 'current_team_id', 'profile_photo_path', 'created_at', 'updated_at', 'payment_deadline', 'first_installation', 'role', 'address', 'no_phone'];
+    protected $fillable = ['password_show','user_status_id', 'name', 'email', 'email_verified_at', 'password', 'two_factor_secret', 'two_factor_recovery_codes', 'two_factor_confirmed_at', 'remember_token', 'current_team_id', 'profile_photo_path', 'created_at', 'updated_at', 'first_installation', 'role', 'address', 'no_phone'];
 
     /**
      * @return BelongsTo

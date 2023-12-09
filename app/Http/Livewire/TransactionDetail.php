@@ -24,7 +24,6 @@ class TransactionDetail extends Component
         $transaction = Transaction::find($this->dataId);
         if ($status != 2) {
             User::find($transaction->user_id)->update([
-                'payment_deadline' => $transaction->date_end,
                 'user_status_id'=>1
             ]);
         }

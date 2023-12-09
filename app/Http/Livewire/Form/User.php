@@ -39,7 +39,6 @@ class User extends Component
         if ($this->data['role']==3){
             $this->data['user_status_id']=2;
             $this->data['first_installation']=$startDate;
-            $this->data['payment_deadline']=$startDate;
         }
         $this->data['password']=$this->data['password_show'];
         $this->data['password']=bcrypt($this->data['password']);
@@ -55,7 +54,6 @@ class User extends Component
                 \App\Models\Transaction::create($this->data);
                 $user->update([
                     'user_status_id'=>1,
-                    'payment_deadline' => $startDate->addMonth()
                 ]);
             }
         }

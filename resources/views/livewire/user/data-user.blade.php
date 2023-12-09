@@ -20,9 +20,9 @@
                     {{ auth()->user()->no_phone }}
                 </div>
                 <br>
-                Tanggal Masa Aktif Internet
-                <div class="w-11/12 max-w-full px-3 bg-gray-200 rounded-lg py-2">
-                    {{ auth()->user()->payment_deadline }}
+                Biaya Pemasangan Awal
+                <div class="w-11/12 max-w-full px-3 bg-gray-200 rounded-lg py-2 ">
+                    {{ auth()->user()->first_installation }}
                 </div>
                 <br>
             </div>
@@ -42,10 +42,7 @@
                     {{ !is_null($transaction)?$transaction->package->price:'' }}
                 </div>
                 <br>
-                Biaya Pemasangan Awal
-                <div class="w-11/12 max-w-full px-3 bg-gray-200 rounded-lg py-2 ">
-                    {{ auth()->user()->first_installation }}
-                </div>
+
             </div>
 
         </div>

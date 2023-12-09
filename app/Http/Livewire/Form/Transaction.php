@@ -32,12 +32,9 @@ class Transaction extends Component
         $this->resetErrorBag();
         $user = User::find($this->data['user_id']);
         if ($user->user_status_id != 1) {
-            $startDate = Carbon::now();
             $user->update([
                 'user_status_id'=>1
             ]);
-        } else {
-            $startDate = Carbon::parse($user->payment_deadline);
         }
         $this->data['transaction_status_id'] = 2;
         $this->data['no_invoice'] = \App\Repository\Form\Transaction::getCode();

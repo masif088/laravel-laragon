@@ -32,15 +32,7 @@ class PaymentConfirmation extends Component
         $this->validate();
         $this->resetErrorBag();
         $user = User::find(auth()->user()->id)->first();
-        if ($user->user_status_id != 1) {
-            $startDate = Carbon::now();
-        } else {
-            $startDate = Carbon::parse($user->payment_deadline);
-        }
-
         $this->data['user_id'] = auth()->user()->id;
-        $this->data['date_start'] = $startDate;
-        $this->data['date_end'] = $startDate->addMonth();
         $this->data['transaction_status_id'] = 1;
         $this->data['no_invoice'] = $this->model::getCode();
         if ($this->data['thumbnail_state'] != null) {
