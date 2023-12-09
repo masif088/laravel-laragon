@@ -101,7 +101,7 @@ class UserTransaction extends \App\Models\Transaction implements Form
             ],[
                 'title' => 'Tahun Pembayaran',
                 'type' => 'select',
-                'model' => 'month',
+                'model' => 'year',
                 'options' => $year,
                 'required' => true,
             ],
