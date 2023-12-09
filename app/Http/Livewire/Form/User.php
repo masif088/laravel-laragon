@@ -27,7 +27,7 @@ class User extends Component
     {
         $rules=$this->model::formRules();
 
-        if ($this->data['role']==3 and $this->statusTransaction) {
+        if ($this->data['role']==3 and $this->statusTransaction==1) {
             $rules = array_merge($rules,UserTransaction::formRules());
         }
 
