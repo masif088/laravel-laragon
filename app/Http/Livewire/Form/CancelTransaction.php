@@ -24,8 +24,10 @@ class CancelTransaction extends Component
         $this->repo = ['title' => 'Pilih transaksi', 'type' => 'select', 'model' => 'package_status_id', 'options' => $this->optionTransaction, 'required' => true,];
     }
 
+
     public function submit()
     {
+        $this->validate();
         $transaction = Transaction::find($this->data['package_status_id']);
         $transaction->update(['transaction_status_id' => 3]);
         $this->alert('success', 'Bermasil membatalkan transaksi');

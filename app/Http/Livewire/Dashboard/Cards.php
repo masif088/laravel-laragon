@@ -30,9 +30,9 @@ class Cards extends Component
                 $q->where('month', '=', $now->month)->where('year', '=', $now->year)->where('transaction_status_id','=',2);
             })->get()->count();
         $this->billCustomer=$billCustomer;
-        $this->user= User::where('role','=',3)->get()->count();
+        $this->user= User::where('role','=',3)->where('user_status_id','=',1)->get()->count();
         $now= Carbon::now();
-        $this->newUser=User::whereRole(3)
+        $this->newUser=User::whereRole(3)>where('user_status_id','=',1)
             ->whereBetween('first_installation',[$now->startOfWeek()->format('Y-m-d'),$now->endOfWeek()->format('Y-m-d')])
             ->get()->count();
     }
