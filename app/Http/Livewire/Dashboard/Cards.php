@@ -25,7 +25,10 @@ class Cards extends Component
             ->get()->sum('money');
         $this->income[]=$income;
         $this->income[]=$incomeYesterday;
-        $billCustomer = User::whereDate('payment_deadline','>',$now->subDays(3))->get()->count();
+        $billCustomer = User::where('role', '=', 3)->where('user_status_id','=',1)
+            ->where('user_status_id','=',1)->whereDoesntHave('transactions', function ($q) use ($now) {
+                $q->where('month', '=', $now->month)->where('year', '=', $now->year);
+            })->get()->count();
         $this->billCustomer=$billCustomer;
         $this->user= User::where('role','=',3)->get()->count();
         $now= Carbon::now();
