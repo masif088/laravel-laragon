@@ -16,7 +16,7 @@
         </a>
     </div>
     <hr class="h-px mt-0 bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent dark:bg-gradient-to-r dark:from-transparent dark:via-white dark:to-transparent"/>
-    <div class="items-center block w-auto max-h-screen overflow-auto grow basis-full">
+    <div class="items-center block w-auto max-h-screen  grow basis-full">
         <ul class="flex flex-col pl-0 mb-0">
             @foreach($sidebars as $sidebar)
                 @isset($sidebar['header'])
