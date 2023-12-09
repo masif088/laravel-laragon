@@ -13,7 +13,7 @@ class User extends \App\Models\User implements View
     {
         $query = $params['query'];
         return empty($query) ? static::query()->whereIn('user_status_id',[1,2])
-            : static::whereIn('user_status_id',[1,2])->where(function ($q) use ($query) {
+            : static::whereIn('user_status_id',[1])->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
                     ->orWhere('email', 'like', '%' . $query . '%');
             });
@@ -33,7 +33,6 @@ class User extends \App\Models\User implements View
             ['label' => 'Name', 'sort' => 'name'],
             ['label' => 'Email', 'sort' => 'email'],
             ['label' => 'Role', 'sort' => 'role'],
-            ['label' => 'Status', 'sort' => 'user_status_id'],
             ['label' => 'Aksi'],
         ];
     }
@@ -58,7 +57,6 @@ class User extends \App\Models\User implements View
             ['type' => 'string', 'data' => $data->name],
             ['type' => 'string', 'data' => $data->email],
             ['type' => 'string', 'data' => $role],
-            ['type' => 'string', 'data' => $data->userStatus->title??"-"],
             ['type' => 'action', 'data' =>$action
             ],
         ];
