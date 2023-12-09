@@ -32,7 +32,7 @@ class Cards extends Component
         $this->billCustomer=$billCustomer;
         $this->user= User::where('role','=',3)->where('user_status_id','=',1)->get()->count();
         $now= Carbon::now();
-        $this->newUser=User::whereRole(3)>where('user_status_id','=',1)
+        $this->newUser=User::whereRole(3)->where('user_status_id','=',1)
             ->whereBetween('first_installation',[$now->startOfWeek()->format('Y-m-d'),$now->endOfWeek()->format('Y-m-d')])
             ->get()->count();
     }
