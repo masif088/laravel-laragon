@@ -25,10 +25,11 @@ class UserTransaction extends \App\Models\Transaction implements Form
     public static function formRules(): array
     {
         return [
-            'dataPackage.package_id' => 'required',
-            'dataPackage.payment_id' => 'required',
-            'dataPackage.date_payment' => 'required',
-            'dataPackage.money' => 'required',
+            'data.package_id' => 'required',
+            'data.payment_id' => 'required',
+            'data.date_payment' => 'required',
+            'data.month' => 'required',
+            'data.year' => 'required',
         ];
     }
 
