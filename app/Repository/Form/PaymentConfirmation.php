@@ -46,7 +46,7 @@ class PaymentConfirmation extends \App\Models\Transaction implements Form
 //            $user[] = ['value' => $u->id, 'title' => "$u->name - $u->email"];
 //        }
         $package = [];
-        foreach (Package::get() as $p) {
+        foreach (Package::where('package_status_id','=',1)->get() as $p) {
             $price = thousand_format($p->price);
             $package[] = ['value' => $p->id, 'title' => "$p->title (Rp. $price)"];
         }

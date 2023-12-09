@@ -17,15 +17,18 @@ class Package extends \App\Models\Package implements View
     public static function tableSearch($params = null): Builder
     {
         $query = $params['query'];
-        return empty($query) ? static::query()
-            : static::query()
-                ->where('title', 'like', '%' . $query . '%')
-                ->orWhere('description', 'like', '%' . $query . '%')
-                ->orWhere('short_description', 'like', '%' . $query . '%')
-                ->orWhere('price', 'like', '%' . $query . '%')
-                ->orWhereHas('packageStatus', function ($q) use ($query) {
-                    $q->where('title', 'like', '%' . $query . '%');
-                });
+        return empty($query) ? static::query()->where('package_status_id','=',1)
+            : static::query()->where('package_status_id','=',1)
+                ->where(function ($q) use ($query) {
+                    $q->where('title', 'like', '%' . $query . '%')
+                        ->orWhere('description', 'like', '%' . $query . '%')
+                        ->orWhere('short_description', 'like', '%' . $query . '%')
+                        ->orWhere('price', 'like', '%' . $query . '%')
+                        ->orWhereHas('packageStatus', function ($q) use ($query) {
+                            $q->where('title', 'like', '%' . $query . '%');
+                        });
+                })
+                ;
     }
 
     public static function tableView(): array

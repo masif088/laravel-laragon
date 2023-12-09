@@ -42,7 +42,7 @@ class UserTransaction extends \App\Models\Transaction implements Form
     {
 
         $package = [];
-        foreach (Package::get() as $p) {
+        foreach (Package::where('package_status_id','=',1)->get() as $p) {
             $price = thousand_format($p->price);
             $package[] = ['value' => $p->id, 'title' => "$p->title (Rp. $price)"];
         }

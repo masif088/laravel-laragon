@@ -16,7 +16,10 @@ class Transaction extends \App\Models\Transaction implements Form
     public static function getCode(): string
     {
         $now = Carbon::now();
-        $count = \App\Models\Transaction::whereMonth('date_payment', $now->month)->whereYear('date_payment', $now->year)->get()->count();
+        $count = \App\Models\Transaction::whereMonth('date_payment', $now->month)
+            ->whereYear('date_payment', $now->year)
+            ->get()
+            ->count();
         $count = str_pad($count + 1, 3, '0', STR_PAD_LEFT);
         $date = $now->format('Ymd');
         return "RG$date$count";
@@ -45,7 +48,7 @@ class Transaction extends \App\Models\Transaction implements Form
             $user[] = ['value' => $u->id, 'title' => "$u->name - $u->email"];
         }
         $package = [];
-        foreach (Package::get() as $p) {
+        foreach (Package::where('package_status_id','=',1)->get() as $p) {
             $price = thousand_format($p->price);
             $package[] = ['value' => $p->id, 'title' => "$p->title (Rp. $price)"];
         }
