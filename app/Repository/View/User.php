@@ -13,7 +13,7 @@ class User extends \App\Models\User implements View
     {
         $query = $params['query'];
         return empty($query) ? static::query()->whereIn('user_status_id',[1,2])
-            : static::whereIn('user_status_id',[1])->where(function ($q) use ($query) {
+            : static::whereIn('user_status_id',[1,2])->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
                     ->orWhere('email', 'like', '%' . $query . '%');
             });

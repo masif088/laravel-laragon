@@ -28,7 +28,7 @@ class Transaction extends \App\Models\Transaction implements Form
     public static function formRules(): array
     {
         return [
-            "data.user_id" => 'required',
+//            "data.user_id" => 'required',
             'data.package_id' => 'required',
             'data.payment_id' => 'required',
             'data.date_payment' => 'required',
@@ -78,13 +78,13 @@ class Transaction extends \App\Models\Transaction implements Form
         ];
 
         return [
-            [
-                'title' => 'Nama Lengkap',
-                'type' => 'select',
-                'model' => 'user_id',
-                'options' => $user,
-                'required' => true,
-            ],
+//            [
+//                'title' => 'Nama Lengkap',
+//                'type' => 'select',
+//                'model' => 'user_id',
+//                'options' => $user,
+//                'required' => true,
+//            ],
             [
                 'title' => 'Paket Pilihan',
                 'type' => 'select',
